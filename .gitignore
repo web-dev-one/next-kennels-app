@@ -31,3 +31,16 @@ yarn-error.log*
 .env
 .vercel
 .sh
+
+*.sh
+*.tfvars
+*.tfstate
+*.tfstate.*
+.terraform
+/.terraform/*
+# ejson keys
+ejson/keys/*
+# Crash log files
+crash.log
+# unencrypted json
+*.tfvars.json
