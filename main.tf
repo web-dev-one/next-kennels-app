@@ -18,11 +18,11 @@ provider "aws" {
 
 ## shell script setups ##
 
-resource "null_resource" "shell" {
-  provisioner "local-exec" {
-    command = "/bin/bash .ecr.sh"
-  }
-}
+# resource "null_resource" "shell" {
+#   provisioner "local-exec" {
+#     command = "/bin/bash .ecr.sh"
+#   }
+# }
 
 # resource null_resource encrypt {
 #     provisioner local-exec {
