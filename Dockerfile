@@ -1,33 +1,23 @@
-FROM node:17.1.0-alpine3.12 AS development
-WORKDIR /app
-ENV HOST=0.0.0.0
-ENV PORT=80
-ENV NODE_ENV=development
-EXPOSE 80
-CMD [ "yarn", "dev" ]
+# Use the official Node.js image as the base  
+FROM node:20  
 
-FROM node:17.1.0-alpine3.12 AS dependencies
-ENV NODE_ENV=production
-WORKDIR /app
-COPY package.json yarn.lock ./
-RUN yarn install
+# Set the working directory inside the container  
+WORKDIR /app  
 
-FROM node:17.1.0-alpine3.12 AS builder
-ENV NODE_ENV=development
-WORKDIR /app
-COPY . .
-RUN yarn install && NODE_ENV=production yarn build
+# Copy package.json and package-lock.json to the container  
+COPY package*.json ./  
 
-FROM node:17.1.0-alpine3.12 AS production
-WORKDIR /app
-ENV HOST=0.0.0.0
-ENV PORT=80
-ENV NODE_ENV=production
-COPY --chown=node --from=builder /app/next.config.js ./
-COPY --chown=node --from=builder /app/public ./public
-COPY --chown=node --from=builder /app/.next ./.next
-COPY --chown=node --from=builder /app/yarn.lock /app/package.json ./
-COPY --chown=node --from=dependencies /app/node_modules ./node_modules
-USER node
-EXPOSE 80
-CMD [ "yarn", "start" ]
+# Install dependencies  
+RUN npm ci  
+
+# Copy the app source code to the container  
+COPY . .  
+
+# Build the Next.js app  
+RUN npm run build  
+
+# Expose the port the app will run on  
+EXPOSE 3000  
+
+# Start the app  
+CMD ["npm", "start"]  
