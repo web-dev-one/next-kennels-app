@@ -29,6 +29,7 @@ resource "aws_security_group" "ecs_tasks" {
     from_port       = var.port
     to_port         = var.port
     security_groups = [aws_security_group.lb.id]
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   egress {
@@ -40,6 +41,7 @@ resource "aws_security_group" "ecs_tasks" {
 }
 
 resource aws_network_interface_sg_attachment sg_attachment {
+  count  = var.app_count
   security_group_id    = aws_security_group.lb.id
-  network_interface_id = aws_nat_gateway.gw.id
+  network_interface_id = aws_nat_gateway.gw[count.index].id
 }
