@@ -39,9 +39,3 @@ resource "aws_security_group" "ecs_tasks" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
-resource aws_network_interface_sg_attachment sg_attachment {
-  count  = var.app_count
-  security_group_id    = aws_security_group.lb.id
-  network_interface_id = aws_nat_gateway.gw[count.index].id
-}
