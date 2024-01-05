@@ -4,7 +4,7 @@ resource "aws_security_group" "lb" {
   vpc_id      = aws_vpc.main.id
 
   ingress {
-    protocol    = "tcp"
+    protocol    = "TCP"
     from_port   = var.port
     to_port     = var.port
     cidr_blocks = ["0.0.0.0/0"]
@@ -25,7 +25,7 @@ resource "aws_security_group" "ecs_tasks" {
   vpc_id      = aws_vpc.main.id
 
   ingress {
-    protocol        = "tcp"
+    protocol        = "TCP"
     from_port       = var.port
     to_port         = var.port
     security_groups = [aws_security_group.lb.id]
@@ -37,4 +37,9 @@ resource "aws_security_group" "ecs_tasks" {
     to_port     = 0
     cidr_blocks = ["0.0.0.0/0"]
   }
+}
+
+resource aws_network_interface_sg_attachment sg_attachment {
+  security_group_id    = aws_security_group.lb.id
+  network_interface_id = aws_nat_gateway.gw.id
 }
