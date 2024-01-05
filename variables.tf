@@ -94,7 +94,7 @@ variable "port" {
 variable "app_count" {
   type        = number
   description = "Number of Containers to run."
-  default     = 1
+  default     = 2
 }
 
 variable "health_check_path" {
