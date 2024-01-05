@@ -9,10 +9,11 @@ resource "aws_appautoscaling_target" "target" {
 
 # Automatically scale capacity up by one
 resource "aws_appautoscaling_policy" "up" {
-  name               = "cale_up"
+  name               = "scale_up"
   service_namespace  = "ecs"
   resource_id        = "service/${aws_ecs_cluster.main.name}/${aws_ecs_service.main.name}"
   scalable_dimension = "ecs:service:DesiredCount"
+   policy_type        = "StepScaling"
 
   step_scaling_policy_configuration {
     adjustment_type         = "ChangeInCapacity"
@@ -20,7 +21,7 @@ resource "aws_appautoscaling_policy" "up" {
     metric_aggregation_type = "Maximum"
 
     step_adjustment {
-      metric_interval_lower_bound = 0.5
+      metric_interval_lower_bound = 0
       scaling_adjustment          = 1
     }
   }
@@ -35,6 +36,7 @@ resource "aws_appautoscaling_policy" "down" {
   service_namespace  = "ecs"
   resource_id        = "service/${aws_ecs_cluster.main.name}/${aws_ecs_service.main.name}"
   scalable_dimension = "ecs:service:DesiredCount"
+   policy_type        = "StepScaling"
 
   step_scaling_policy_configuration {
     adjustment_type         = "ChangeInCapacity"
@@ -42,7 +44,7 @@ resource "aws_appautoscaling_policy" "down" {
     metric_aggregation_type = "Maximum"
 
     step_adjustment {
-      metric_interval_lower_bound = 0.5
+      metric_interval_lower_bound = 0
       scaling_adjustment          = -1
     }
   }
