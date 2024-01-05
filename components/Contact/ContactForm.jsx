@@ -1,6 +1,6 @@
 import React, {useRef} from "react";
 import SectionTitle from "../SectionTitle";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import ContactFormResponse from "./ContactFormResponse";
 import { useForm } from "../Hooks/useForm";
 import Button from "../Button";
@@ -160,8 +160,4 @@ export default function ContactForm() {
   );
 }
 
-// emailjs id service_0g854z1
-
-// emailjs.sendForm("default_service",NEXT_PUBLIC_templateid,{to_name: "yO",reply_to: "randyisbusy@gmail.com",phone: "6029997756",message: "yo",from_name: "Pet-Safe-Kennels"},NEXT_PUBLIC_userid).then((result)=>{console.log("res", result.text);console.log(200);})
-
-        
+ 
