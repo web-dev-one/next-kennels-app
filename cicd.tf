@@ -102,7 +102,7 @@ resource "aws_codebuild_project" "codebuild" {
     }
     environment_variable {
       name  = "IMAGE_TAG"
-      value = "catios"
+      value = "latest"
     }
 
     environment_variable {
