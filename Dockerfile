@@ -9,7 +9,7 @@ CMD [ "yarn", "dev" ]
 FROM node:17.1.0-alpine3.12 AS dependencies
 ENV NODE_ENV=production
 WORKDIR /app
-COPY package.json
+COPY package.json yarn.lock ./
 RUN yarn install
 
 FROM node:17.1.0-alpine3.12 AS builder
