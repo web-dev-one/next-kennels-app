@@ -4,7 +4,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 12
+      nodejs: 20
   pre_build:
     commands:
     - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_REPOSITORY_URI
@@ -14,11 +14,9 @@ phases:
   build:
     commands:
     - echo deploying docker image...
-    - docker pull $ECR_REPOSITORY_URI
-    - docker ps
-    - docker ps -a
-    - docker inspect $ECR_REPOSITORY_URI
+    - docker pull $ECR_REPOSITORY_URI:$IMAGE_TAG
+    
   post_build:
     commands:
     - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_REPOSITORY_URI
-    - docker run -d -p 80:80 $ECR_REPOSITORY_URI
+    - docker run -d -p 80:80 $ECR_REPOSITORY_URI:$IMAGE_TAG
