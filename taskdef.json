@@ -5,19 +5,19 @@
         "name": <APP_NAME>,
         "image": <IMAGE_NAME>,
         "essential": true,
-        "memoryReservation": "<MEMORY>",
+        "memoryReservation": <MEMORY>,
         "portMappings": [
           {
-            "hostPort": "<SERVICE_PORT>",
+            "hostPort": <SERVICE_PORT>,
             "protocol": "tcp",
-            "containerPort": "<SERVICE_PORT>"
+            "containerPort": <SERVICE_PORT>
           }
         ],
-        "cpu": "<CPU>",
+        "cpu": <CPU>,
         "environment": [
           {
             "name": "PORT",
-            "value": "<SERVICE_PORT>"
+            "value": <SERVICE_PORT>
           },
           {
             "name": "APP_NAME",
