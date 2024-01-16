@@ -83,7 +83,6 @@ variable "az_count" {
 }
 
 ## REMEMBER TO BUILD ECR REPO URL WITH TAG IN CODE ##
-
 variable "port" {
   type        = number
   description = "Port Docker image exposes to traffic."
