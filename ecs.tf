@@ -17,7 +17,7 @@ resource "aws_ecs_task_definition" "app" {
     "image": "${jsondecode(data.aws_secretsmanager_secret_version.account_id.secret_string)["AWS_ACCOUNT_ID"]}.dkr.ecr.${var.region}.amazonaws.com/${var.image_repo_name}:${var.docker_tag}",
     "essential": true,
     "portMappings": [
-      {
+      { "protocol: true,
         "containerPort": 3000,
         "hostPort": 3000
       }
@@ -50,7 +50,10 @@ resource "aws_ecs_service" "main" {
   deployment_minimum_healthy_percent = 10
   deployment_maximum_percent         = 110
   health_check_grace_period_seconds  = 800
-
+  
+   deployment_controller {
+    type = "CODE_DEPLOY"
+  }
   network_configuration {
     security_groups  = [aws_security_group.ecs_tasks.id]
     subnets          = aws_subnet.pri.*.id
