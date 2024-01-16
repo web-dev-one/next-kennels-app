@@ -8,9 +8,9 @@
        
         "portMappings": [
           {
-            "hostPort": "<SERVICE_PORT>",
+            "hostPort": <SERVICE_PORT>,
             "protocol": "tcp",
-            "containerPort": "<SERVICE_PORT>"
+            "containerPort": <SERVICE_PORT>
           }
         ],
        
@@ -29,6 +29,8 @@
     "requiresCompatibilities": [
         "FARGATE" 
     ],
+    "cpu": "<CPU>",
+    "memory": "<MEMORY>",
     "networkMode": "awsvpc",
     "family": "<APP_NAME>"
   }
