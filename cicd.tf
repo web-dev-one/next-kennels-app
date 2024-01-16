@@ -132,6 +132,10 @@ resource "aws_codebuild_project" "codebuild" {
       name ="SECURITYGROUPS"
       value = aws_security_group.lb.id
     }
+        environment_variable {
+      name = "SERVICE_PORT"
+      value = var.port
+    }
     environment_variable{
       name ="PUBSUBNET"
       value = aws_subnet.pub[0].id
