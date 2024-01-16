@@ -116,6 +116,10 @@ resource "aws_codebuild_project" "codebuild" {
       name  = "GIT_REPO"
       value = "web-dev-one/next-kennels-app"
     }
+        environment_variable{
+      name = "MEMORY"
+      value = var.fargate_memory
+    }
     environment_variable{
       name ="SUBNET"
       value = aws_subnet.pri[0].id
