@@ -1,7 +1,6 @@
 import Buttons from "../Buttons";
 import Refferal from "./Refferal";
 import Image from "next/image";
-import { Image } from "next/image";
 import Backdrop from "../Backdrop";
 import React from "react";
 import Link from "next/link";
