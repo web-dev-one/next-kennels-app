@@ -12,17 +12,6 @@
             "protocol": "tcp",
             "containerPort": <SERVICE_PORT>
           }
-        ],
-       
-        "environment": [
-          {
-            "name": "PORT",
-            "value": "<SERVICE_PORT>"
-          },
-          {
-            "name": "APP_NAME",
-            "value": "<APP_NAME>"
-          }
         ]
       }
     ],
