@@ -107,7 +107,7 @@ resource "aws_codebuild_project" "codebuild" {
 
     environment_variable {
       name  = "GIT_REPO"
-      value = "https://github.com/web-dev-one/next-kennels-app"
+      value = "web-dev-one/next-kennels-app"
     }
     environment_variable{
       name ="SUBNET"

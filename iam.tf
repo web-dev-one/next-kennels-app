@@ -8,7 +8,7 @@ data "local_file" "policy" {
 
 
 resource "aws_iam_role" "role" {
-  name               = "iam-role-terraform"
+  name               = "${var.name}-iam-role-terraform"
   assume_role_policy = data.local_file.assumeRole_policy.content
 }
 
@@ -59,7 +59,7 @@ data "aws_iam_policy_document" "cicd-pipeline-policies" {
 }
 
 resource "aws_iam_policy" "cicd-pipeline-policy" {
-  name        = "tf-cicd-pipeline-policy"
+  name        = "${var.name}-cicd-pipeline-policy"
   path        = "/"
   description = "Pipeline policy"
   policy      = data.aws_iam_policy_document.cicd-pipeline-policies.json
@@ -102,7 +102,7 @@ data "aws_iam_policy_document" "cicd-build-policies" {
 }
 
 resource "aws_iam_policy" "cicd-build-policy" {
-  name        = "cicd-build-policy"
+  name        = "${var.name}-cicd-build-policy"
   path        = "/"
   description = "Codebuild policy"
   policy      = data.aws_iam_policy_document.cicd-build-policies.json
@@ -196,7 +196,7 @@ data "aws_iam_policy_document" "ecs_service_scaling" {
 }
 
 resource "aws_iam_policy" "ecs_service_scaling" {
-  name        = "dev-to-scaling"
+  name        = "${var.name}-dev-to-scaling"
   path        = "/"
   description = "Allow ecs service scaling"
   policy      = data.aws_iam_policy_document.ecs_service_scaling.json
