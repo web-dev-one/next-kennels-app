@@ -1,7 +1,7 @@
 import Buttons from "../Buttons";
 import Refferal from "./Refferal";
 import Image from "next/image";
-import ExportedImage from "next-image-export-optimizer";
+import { Image } from "next/image";
 import Backdrop from "../Backdrop";
 import React from "react";
 import Link from "next/link";
@@ -146,7 +146,7 @@ export default function ServicesMap(props) {
     >
       {/* image */}
       <div className="flex">
-        <ExportedImage
+        <Image
           src={`${list[0].image}`}
           width={width()}
           height={props.showMobile ? 320 : 1250}

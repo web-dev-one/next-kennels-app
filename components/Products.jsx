@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import ExportedImage from "next-image-export-optimizer";
+import { Image } from "next/image";
 import SectionTitle from "./SectionTitle";
 export default function Products() {
   const [brand, setBrandOpen] = React.useState(false);
@@ -10,7 +10,6 @@ export default function Products() {
       <SectionTitle title={"High-quality products"} />
       {/* wraper */}
       <div className="flex flex-wrap flex-row">
-        {/* top brands */}
         <div className="w-full p-4 sm:w-full md:w-1/2 lg:w-1/2">
           <div
             className="mb-8 text-center cursor-pointer sm:cursor-pointer lg:cursor-default md:cursor-default xl:cursor-default"
@@ -41,7 +40,7 @@ export default function Products() {
           <div
             className={"lg:block md:block " + (brand ? "block mb-6" : "hidden")}
           >
-            <ExportedImage
+            <Image
               src="https://res.cloudinary.com/dyj6lkekg/image/upload/tete/top-brands.png"
               alt="Top brands"
               width={604}
@@ -53,7 +52,6 @@ export default function Products() {
           <hr className="block sm:block md:hidden lg:hidden" />
         </div>
 
-        {/* green choices */}
         <div className="w-full sm:p-4 pt-4 sm:w-full md:w-1/2 lg:w-1/2">
           <div
             className="mb-8 text-center cursor-pointer sm:cursor-pointer lg:cursor-default md:cursor-default xl:cursor-default"

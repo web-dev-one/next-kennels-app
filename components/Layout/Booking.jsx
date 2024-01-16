@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ExportedImage from "next-image-export-optimizer";
 import Backdrop from "../Backdrop";
 import Schedule from "../Schedule";
 import React from "react";

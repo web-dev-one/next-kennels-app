@@ -4,7 +4,14 @@
 npm-debug.log
 .coverage
 .coverage.*
-.env
 .aws
 .ecr.*
 *.sh
+Dockerfile
+.dockerignore
+node_modules
+npm-debug.log
+README.md
+.next
+.git
+.env

@@ -23,9 +23,9 @@ data "aws_secretsmanager_secret_version" "dockerhub" {
 }
 
 data "aws_secretsmanager_secret" "docker_s_arn" {
-  arn = "arn:aws:secretsmanager:us-east-2:${jsondecode(data.aws_secretsmanager_secret_version.account_id.secret_string)["AWS_ACCOUNT_ID"]}:secret:dockerhub-creds"
+  arn = "arn:aws:secretsmanager:us-east-1:${jsondecode(data.aws_secretsmanager_secret_version.account_id.secret_string)["AWS_ACCOUNT_ID"]}:secret:dockerhub-creds"
 }
 
 data "aws_secretsmanager_secret" "codestar_arn" {
-  arn = nonsensitive("arn:aws:secretsmanager:us-east-2:${jsondecode(data.aws_secretsmanager_secret_version.account_id.secret_string)["AWS_ACCOUNT_ID"]}:secret:code-star-creds")
+  arn = nonsensitive("arn:aws:secretsmanager:us-east-1:${jsondecode(data.aws_secretsmanager_secret_version.account_id.secret_string)["AWS_ACCOUNT_ID"]}:secret:code-star-creds")
 }

@@ -109,6 +109,34 @@ resource "aws_codebuild_project" "codebuild" {
       name  = "GIT_REPO"
       value = "https://github.com/web-dev-one/next-kennels-app"
     }
+    environment_variable{
+      name ="SUBNET"
+      value = aws_subnet.pri[0].id
+    }
+    environment_variable{
+      name ="SUBNET1"
+      value = aws_subnet.pri[1].id
+    }
+     environment_variable{
+      name ="SUBNET2"
+      value = aws_subnet.pri[2].id
+    }
+    environment_variable{
+      name ="SECURITYGROUPS"
+      value = aws_security_group.lb.id
+    }
+    environment_variable{
+      name ="PUBSUBNET"
+      value = aws_subnet.pub[0].id
+    }
+     environment_variable{
+      name ="PUBSUBNET1"
+      value = aws_subnet.pub[1].id
+    }
+    environment_variable{
+      name ="PUBSUBNET2"
+      value = aws_subnet.pub[2].id
+    }
 
 
   }
@@ -201,19 +229,37 @@ resource "aws_codepipeline" "cicd_pipeline" {
     }
   }
 
+  # stage {
+  #   name = "Deploy"
+  #   action {
+  #     name            = "Deploy"
+  #     category        = "Build"
+  #     provider        = "CodeBuild"
+  #     version         = "1"
+  #     owner           = "AWS"
+  #     input_artifacts = ["code"]
+  #     configuration = {
+  #       ProjectName = "${var.name}-cicd-deploy"
+  #     }
+  #   }
+  # }
   stage {
     name = "Deploy"
     action {
       name            = "Deploy"
-      category        = "Build"
-      provider        = "CodeBuild"
+      category        = "Deploy"
+      provider        = "CodeDeployToECS"
       version         = "1"
       owner           = "AWS"
-      input_artifacts = ["code"]
+      input_artifacts = ["BuildArtifact"]
       configuration = {
-        ProjectName = "${var.name}-cicd-deploy"
-      }
+        ApplicationName = "${var.name}-service-deploy"
+        DeploymentGroupName = "${var.name}-service-deploy-group"
+        TaskDefinitionTemplateArtifact = "BuildArtifact"
+        TaskDefinitionTemplatePath = "taskdef.json"
+        AppSpecTemplateArtifact = "BuildArtifact"
+        AppSpecTemplatePath = "appspec.yml"
+       }
     }
   }
-
 }

@@ -1,7 +1,7 @@
 variable "region" {
   description = "Region"
   type        = string
-  default     = "us-east-2"
+  default     = "us-east-1"
 }
 
 variable "prop_tags" {
