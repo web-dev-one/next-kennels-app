@@ -223,6 +223,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
       version         = "1"
       owner           = "AWS"
       input_artifacts = ["code"]
+      output_artifacts = ["BuildArtifact"]
       configuration = {
         ProjectName = "${var.name}-cicd-build"
       }
