@@ -104,7 +104,10 @@ resource "aws_codebuild_project" "codebuild" {
       name  = "IMAGE_TAG"
       value = "latest"
     }
-
+    environment_variable {
+      name = "IMAGE_REPO_NAME"
+      value = var.image_repo_name
+    }
     environment_variable {
       name  = "GIT_REPO"
       value = "web-dev-one/next-kennels-app"
