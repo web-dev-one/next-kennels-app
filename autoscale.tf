@@ -13,7 +13,7 @@ resource "aws_appautoscaling_policy" "up" {
   service_namespace  = "ecs"
   resource_id        = "service/${aws_ecs_cluster.main.name}/${aws_ecs_service.main.name}"
   scalable_dimension = "ecs:service:DesiredCount"
-   policy_type        = "StepScaling"
+  policy_type        = "StepScaling"
 
   step_scaling_policy_configuration {
     adjustment_type         = "ChangeInCapacity"
@@ -36,7 +36,7 @@ resource "aws_appautoscaling_policy" "down" {
   service_namespace  = "ecs"
   resource_id        = "service/${aws_ecs_cluster.main.name}/${aws_ecs_service.main.name}"
   scalable_dimension = "ecs:service:DesiredCount"
-   policy_type        = "StepScaling"
+  policy_type        = "StepScaling"
 
   step_scaling_policy_configuration {
     adjustment_type         = "ChangeInCapacity"

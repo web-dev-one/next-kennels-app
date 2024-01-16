@@ -109,47 +109,47 @@ resource "aws_codebuild_project" "codebuild" {
       value = var.fargate_cpu
     }
     environment_variable {
-      name = "IMAGE_REPO_NAME"
+      name  = "IMAGE_REPO_NAME"
       value = var.image_repo_name
     }
     environment_variable {
       name  = "GIT_REPO"
       value = "web-dev-one/next-kennels-app"
     }
-        environment_variable{
-      name = "MEMORY"
+    environment_variable {
+      name  = "MEMORY"
       value = var.fargate_memory
     }
-    environment_variable{
-      name ="SUBNET"
+    environment_variable {
+      name  = "SUBNET"
       value = aws_subnet.pri[0].id
     }
-    environment_variable{
-      name ="SUBNET1"
+    environment_variable {
+      name  = "SUBNET1"
       value = aws_subnet.pri[1].id
     }
-     environment_variable{
-      name ="SUBNET2"
+    environment_variable {
+      name  = "SUBNET2"
       value = aws_subnet.pri[2].id
     }
-    environment_variable{
-      name ="SECURITYGROUPS"
+    environment_variable {
+      name  = "SECURITYGROUPS"
       value = aws_security_group.lb.id
     }
-        environment_variable {
-      name = "SERVICE_PORT"
+    environment_variable {
+      name  = "SERVICE_PORT"
       value = var.port
     }
-    environment_variable{
-      name ="PUBSUBNET"
+    environment_variable {
+      name  = "PUBSUBNET"
       value = aws_subnet.pub[0].id
     }
-     environment_variable{
-      name ="PUBSUBNET1"
+    environment_variable {
+      name  = "PUBSUBNET1"
       value = aws_subnet.pub[1].id
     }
-    environment_variable{
-      name ="PUBSUBNET2"
+    environment_variable {
+      name  = "PUBSUBNET2"
       value = aws_subnet.pub[2].id
     }
 
@@ -232,12 +232,12 @@ resource "aws_codepipeline" "cicd_pipeline" {
   stage {
     name = "Plan"
     action {
-      name            = "Build"
-      category        = "Build"
-      provider        = "CodeBuild"
-      version         = "1"
-      owner           = "AWS"
-      input_artifacts = ["code"]
+      name             = "Build"
+      category         = "Build"
+      provider         = "CodeBuild"
+      version          = "1"
+      owner            = "AWS"
+      input_artifacts  = ["code"]
       output_artifacts = ["BuildArtifact"]
       configuration = {
         ProjectName = "${var.name}-cicd-build"
@@ -269,13 +269,13 @@ resource "aws_codepipeline" "cicd_pipeline" {
       owner           = "AWS"
       input_artifacts = ["BuildArtifact"]
       configuration = {
-        ApplicationName = "${var.name}-service-deploy"
-        DeploymentGroupName = "${var.name}-service-deploy-group"
+        ApplicationName                = "${var.name}-service-deploy"
+        DeploymentGroupName            = "${var.name}-service-deploy-group"
         TaskDefinitionTemplateArtifact = "BuildArtifact"
-        TaskDefinitionTemplatePath = "taskdef.json"
-        AppSpecTemplateArtifact = "BuildArtifact"
-        AppSpecTemplatePath = "appspec.yml"
-       }
+        TaskDefinitionTemplatePath     = "taskdef.json"
+        AppSpecTemplateArtifact        = "BuildArtifact"
+        AppSpecTemplatePath            = "appspec.yml"
+      }
     }
   }
 }

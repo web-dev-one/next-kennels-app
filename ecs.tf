@@ -46,12 +46,12 @@ resource "aws_ecs_service" "main" {
   task_definition = aws_ecs_task_definition.app.arn
   desired_count   = var.app_count
   launch_type     = "FARGATE"
-  
+
   deployment_minimum_healthy_percent = 10
   deployment_maximum_percent         = 110
   health_check_grace_period_seconds  = 800
 
-   deployment_controller {
+  deployment_controller {
     type = "CODE_DEPLOY"
   }
   network_configuration {
