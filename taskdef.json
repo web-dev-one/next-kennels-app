@@ -8,16 +8,16 @@
        
         "portMappings": [
           {
-            "hostPort": <SERVICE_PORT>,
+            "hostPort": "<SERVICE_PORT>",
             "protocol": "tcp",
-            "containerPort": <SERVICE_PORT>
+            "containerPort": "<SERVICE_PORT>"
           }
         ],
        
         "environment": [
           {
             "name": "PORT",
-            "value": <SERVICE_PORT>
+            "value": "<SERVICE_PORT>"
           },
           {
             "name": "APP_NAME",
