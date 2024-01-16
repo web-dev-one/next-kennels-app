@@ -1,5 +1,5 @@
 # Creating a new stage. This stage will install the dependencies related to project
-FROM --platform=linux/amd64 node:16-alpine AS deps
+FROM --platform=linux/amd64 alpine:3.18 AS deps
 # A shared library which is requried for process.dlopen is missing in alpine image. So you need
 # to run below command in order avoid any issues that might occur due to that.
 RUN apk add --no-cache libc6-compat
