@@ -2,8 +2,8 @@
     "executionRoleArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/<APP_NAME>_ecsTaskExecutionRole",
     "containerDefinitions": [
       {
-        "name": <APP_NAME>,
-        "image": <IMAGE_NAME>,
+        "name": "<APP_NAME>",
+        "image": "<IMAGE_NAME>",
         "essential": true,
         "memoryReservation": <MEMORY>,
         "portMappings": [
@@ -21,7 +21,7 @@
           },
           {
             "name": "APP_NAME",
-            "value": <APP_NAME>
+            "value": "<APP_NAME>"
           }
         ]
       }
