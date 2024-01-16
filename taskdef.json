@@ -5,7 +5,7 @@
         "name": "<APP_NAME>",
         "image": "<IMAGE_NAME>",
         "essential": true,
-        "memoryReservation": <MEMORY>,
+        "memoryReservation": "<MEMORY>",
         "portMappings": [
           {
             "hostPort": <SERVICE_PORT>,
