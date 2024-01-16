@@ -245,7 +245,7 @@ data "aws_iam_policy_document" "codedeploy" {
 }
 
 resource "aws_iam_role_policy" "codedeploy" {
-  role   = "${aws_iam_role.codedeploy.name}"
+  role   = "${var.name}-${aws_iam_role.codedeploy.name}"
   policy = "${data.aws_iam_policy_document.codedeploy.json}"
 }
 
@@ -297,22 +297,22 @@ data "aws_iam_policy_document" "task_role" {
 }
 
 resource "aws_iam_role" "execution_role" {
-  name               = "${var.name}_ecsTaskExecutionRole"
+  name               = "${var.region}-${var.name}_ecsTaskExecutionRole"
   assume_role_policy = "${data.aws_iam_policy_document.assume_by_ecs.json}"
 }
 
 resource "aws_iam_role_policy" "execution_role" {
-  role   = "${aws_iam_role.execution_role.name}"
+  role   = "${var.region}-${aws_iam_role.execution_role.name}"
   policy = "${data.aws_iam_policy_document.execution_role.json}"
 }
 
 resource "aws_iam_role" "task_role" {
-  name               = "${var.name}_ecsTaskRole"
+  name               = "${var.region}-${var.name}_ecsTaskRole"
   assume_role_policy = "${data.aws_iam_policy_document.assume_by_ecs.json}"
 }
 
 resource "aws_iam_role_policy" "task_role" {
-  role   = "${aws_iam_role.task_role.name}"
+  role   = "${var.region}-${aws_iam_role.task_role.name}"
   policy = "${data.aws_iam_policy_document.task_role.json}"
 }
 
