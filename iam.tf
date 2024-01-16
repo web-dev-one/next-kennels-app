@@ -144,7 +144,7 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role" {
 ## AUTO SCALING ##
 
 resource "aws_iam_role" "ecs_auto_scale_role" {
-  name = "ecs-service"
+  name = "${var.name}-ecs-service"
 
   assume_role_policy = <<EOF
 {
@@ -245,7 +245,7 @@ data "aws_iam_policy_document" "codedeploy" {
 }
 
 resource "aws_iam_role_policy" "codedeploy" {
-  role   = "${var.name}-${aws_iam_role.codedeploy.name}"
+  role   = "${aws_iam_role.codedeploy.name}"
   policy = "${data.aws_iam_policy_document.codedeploy.json}"
 }
 
@@ -302,7 +302,7 @@ resource "aws_iam_role" "execution_role" {
 }
 
 resource "aws_iam_role_policy" "execution_role" {
-  role   = "${var.region}-${aws_iam_role.execution_role.name}"
+  role   = "${aws_iam_role.execution_role.name}"
   policy = "${data.aws_iam_policy_document.execution_role.json}"
 }
 
@@ -312,7 +312,7 @@ resource "aws_iam_role" "task_role" {
 }
 
 resource "aws_iam_role_policy" "task_role" {
-  role   = "${var.region}-${aws_iam_role.task_role.name}"
+  role   = "${aws_iam_role.task_role.name}"
   policy = "${data.aws_iam_policy_document.task_role.json}"
 }
 
