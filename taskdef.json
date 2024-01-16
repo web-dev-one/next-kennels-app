@@ -13,7 +13,7 @@
             "containerPort": <SERVICE_PORT>
           }
         ],
-        "cpu": "<CPU>",
+        "cpu": <CPU>,
         "environment": [
           {
             "name": "PORT",
