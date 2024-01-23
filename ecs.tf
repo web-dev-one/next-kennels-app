@@ -47,9 +47,9 @@ resource "aws_ecs_service" "main" {
   desired_count   = var.app_count
   launch_type     = "FARGATE"
 
-  deployment_minimum_healthy_percent = 10
-  deployment_maximum_percent         = 110
-  health_check_grace_period_seconds  = 800
+  deployment_minimum_healthy_percent = 50
+  deployment_maximum_percent         = 100
+  health_check_grace_period_seconds  = 300
 
   deployment_controller {
     type = "CODE_DEPLOY"
