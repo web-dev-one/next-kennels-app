@@ -1,5 +1,5 @@
 # Build Stage
-FROM node:21-bookworm-slim AS BUILD_IMAGE
+FROM node:21-slim AS BUILD_IMAGE
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
@@ -8,7 +8,7 @@ RUN npm run build
 
 
 # Production Stage
-FROM node:21-bookworm-slim AS PRODUCTION_STAGE
+FROM node:21-slim AS PRODUCTION_STAGE
 WORKDIR /app
 COPY --from=BUILD_IMAGE /app/package*.json ./
 COPY --from=BUILD_IMAGE /app/.next ./.next
