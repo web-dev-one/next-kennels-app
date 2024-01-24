@@ -1,9 +1,10 @@
 resource "aws_alb" "main" {
   name            = "load-balancer"
-  subnets         = aws_subnet.pub.*.id
+  # subnets         = [for subnet in aws_subnet.pub.*: subnet.id]
+  subnets = [aws_subnet.pri[*].id , aws_subnet.pub[*].id ]
   security_groups = [aws_security_group.lb.id]
 }
-
+# aws_subnet.pub.*.id
 resource "aws_alb_target_group" "app" {
   name        = "target-group"
   port        = 80
