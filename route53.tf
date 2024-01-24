@@ -55,6 +55,6 @@ resource "aws_route53_record" "kennelsomain_name" {
   alias {
     name                   = aws_alb.main.dns_name
     zone_id                = aws_alb.main.zone_id
-    evaluate_target_health = true
+    evaluate_target_health = false
   }
 }
