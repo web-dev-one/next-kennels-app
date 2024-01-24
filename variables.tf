@@ -142,3 +142,14 @@ variable "build_image" {
   #  default = "aws/codebuild/standard:5.0"
   default = "aws/codebuild/amazonlinux2-x86_64-standard:5.0"
 }
+
+variable "subnets" {
+   default = {
+    sub1 = "subnet-006ca041b39be80b4"
+    sub1 = "subnet-0246fdc7061db53e1"
+    sub1 = "subnet-00f5314740a1192ce"
+    pubsub2 = "subnet-0398c1444d2832c06"
+    pubsub3 = "subnet-0c613fbfbfb5a6f2a"
+    pubsub3 = "subnet-0c613fbfbfb5a6f2a"
+   }
+}

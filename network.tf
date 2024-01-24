@@ -9,6 +9,7 @@ resource "aws_subnet" "pri" {
   cidr_block        = cidrsubnet(aws_vpc.main.cidr_block, 8, count.index)
   availability_zone = data.aws_availability_zones.available.names[count.index]
   vpc_id            = aws_vpc.main.id
+  tags = {Company: "PSK", app: "next", type: "pri"}
 }
 
 resource "aws_subnet" "pub" {
@@ -17,6 +18,7 @@ resource "aws_subnet" "pub" {
   availability_zone       = data.aws_availability_zones.available.names[count.index]
   vpc_id                  = aws_vpc.main.id
   map_public_ip_on_launch = true
+   tags = {Company: "PSK", app: "next", type: "pub"}
 }
 
 resource "aws_internet_gateway" "gw" {
