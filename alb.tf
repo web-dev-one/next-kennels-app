@@ -28,6 +28,7 @@ resource "aws_alb_target_group" "app" {
 resource "aws_alb_listener" "front_end" {
   load_balancer_arn = aws_alb.main.id
   port              = 80
+  protocol = "HTTP"
  default_action {
    type = "redirect"
  
@@ -42,7 +43,7 @@ resource "aws_alb_listener" "front_end" {
 resource "aws_alb_listener" "https" {
   load_balancer_arn = aws_alb.main.id
   port              = 443
-  protocol = "https"
+  protocol = "HTTPS"
   certificate_arn = aws_acm_certificate.hello_certificate.arn
  default_action {
     target_group_arn = aws_alb_target_group.app.id
