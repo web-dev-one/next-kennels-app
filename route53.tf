@@ -28,6 +28,7 @@ resource "aws_route53_zone" "kennelsdomain_name" {
 }
 
 resource "aws_acm_certificate" "hello_certificate" {
+  
   domain_name       = var.domainName
   validation_method = "DNS"
 
@@ -36,10 +37,7 @@ resource "aws_acm_certificate" "hello_certificate" {
   }
 }
 
-resource "aws_acm_certificate_validation" "kennels" {
-  certificate_arn         = aws_acm_certificate.hello_certificate.arn
-  validation_record_fqdns = [for record in aws_route53_record.hello_cert_dns : record.fqdn]
-}
+
 
 resource "aws_route53_record" "hello_cert_dns" {
   # allow_overwrite = true
@@ -63,6 +61,17 @@ resource "aws_route53_record" "hello_cert_dns" {
   type            = each.value.type
   zone_id         = aws_route53_zone.kennelsdomain_name.zone_id
 
+ 
+
+}
+
+resource "aws_acm_certificate_validation" "kennels" {
+
+
+  certificate_arn         = aws_acm_certificate.hello_certificate.arn
+  validation_record_fqdns = [for record in aws_route53_record.hello_cert_dns : record.fqdn]
+  
+  depends_on = [ aws_route53_record.hello_cert_dns ]
 }
 
 resource "aws_route53_record" "kennelsomain_name" {

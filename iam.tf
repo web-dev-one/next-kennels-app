@@ -52,7 +52,7 @@ data "aws_iam_policy_document" "cicd-pipeline-policies" {
   }
   statement {
     sid       = ""
-    actions   = ["cloudwatch:*", "s3:*", "codebuild:*", "ecr:*", "codedeploy:*", "ecs:*", "iam:*", "codedeploy:*"]
+    actions   = ["cloudwatch:*", "s3:*", "codebuild:*", "ecr:*", "codedeploy:*", "ecs:*", "iam:*", "codedeploy:*", "route53:*"]
     resources = ["*"]
     effect    = "Allow"
   }
@@ -95,7 +95,7 @@ EOF
 data "aws_iam_policy_document" "cicd-build-policies" {
   statement {
     sid       = ""
-    actions   = ["logs:*", "s3:*", "codebuild:*", "secretsmanager:*", "iam:*", "ecr:*", "ecr:completeLayerUpload", "ecr:InitiateLayerUpload", "ecr:PutImage", "ecr:UploadLayerPart"]
+    actions   = ["logs:*", "s3:*", "codebuild:*", "secretsmanager:*", "iam:*", "ecr:*", "ecr:completeLayerUpload", "ecr:InitiateLayerUpload", "ecr:PutImage", "ecr:UploadLayerPart", "route53:*"]
     resources = ["*"]
     effect    = "Allow"
   }
@@ -186,7 +186,8 @@ data "aws_iam_policy_document" "ecs_service_scaling" {
       "sns:CreateTopic",
       "sns:Subscribe",
       "sns:Get*",
-      "sns:List*"
+      "sns:List*",
+      "route53:*"
     ]
 
     resources = [
@@ -225,7 +226,8 @@ data "aws_iam_policy_document" "codedeploy" {
       "sns:Publish",
       "s3:*",
       "codedeploy:*",
-      "iam:*"
+      "iam:*",
+      "route53:*"
     ]
 
     resources = ["*"]
@@ -277,7 +279,8 @@ data "aws_iam_policy_document" "execution_role" {
       "elasticloadbalancing:*",
       "iam:*",
       "ecs:*",
-      "s3:*"
+      "s3:*",
+      "route53:*"
 
     ]
 
