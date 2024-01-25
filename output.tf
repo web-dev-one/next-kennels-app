@@ -12,7 +12,3 @@ output "hosted_zone_id" {
   value       = aws_route53_zone.kennelsdomain_name.zone_id
 }
 
-output "aws_route53_record_name" {
-   description = "Name of route53 DNS cert"
-   value = aws_route53_record.hello_cert_dns.name
-}

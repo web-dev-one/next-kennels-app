@@ -26,9 +26,26 @@ resource "aws_internet_gateway" "gw" {
 }
 
 resource "aws_route" "internet_access" {
+  count = length(aws_nat_gateway.gw)
   route_table_id         = aws_vpc.main.main_route_table_id
   destination_cidr_block = "0.0.0.0/0"
+  # gateway_id             = aws_internet_gateway.gw.id
+  nat_gateway_id = aws_nat_gateway.gw[count.index].id
+}
+resource "aws_route" "public" {
+  route_table_id         = aws_route_table.public.id
+  destination_cidr_block = "0.0.0.0/0"
   gateway_id             = aws_internet_gateway.gw.id
+}
+
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.main.id
+}
+ 
+resource "aws_route_table_association" "public" {
+  count          = var.az_count
+  subnet_id      = element(aws_subnet.pub.*.id, count.index)
+  route_table_id = aws_route_table.public.id
 }
 
 resource "aws_eip" "gw" {
