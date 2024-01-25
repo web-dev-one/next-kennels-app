@@ -7,6 +7,7 @@ output "name_servers" {
   value       = aws_route53_zone.kennelsdomain_name.name_servers
 }
 
+
 output "hosted_zone_id" {
   description = "The hosted zone ID"
   value       = aws_route53_zone.kennelsdomain_name.zone_id

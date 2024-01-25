@@ -25,12 +25,11 @@
 
 resource "aws_route53_zone" "kennelsdomain_name" {
   name = var.domainName
- 
+
 }
 
 resource "aws_acm_certificate" "hello_certificate" {
   domain_name       = var.domainName
-
   validation_method = "DNS"
 
   lifecycle {
@@ -64,7 +63,7 @@ resource "aws_route53_record" "hello_cert_dns" {
   ttl             = 60
   type            = each.value.type
   zone_id         = aws_route53_zone.kennelsdomain_name.zone_id
- 
+
 }
 
 resource "aws_route53_record" "kennelsomain_name" {

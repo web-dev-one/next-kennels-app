@@ -2,13 +2,13 @@ resource "aws_security_group" "lb" {
   name        = "load-balancer-security-group"
   description = "controls access to the ALB"
   vpc_id      = aws_vpc.main.id
- 
- ingress {
-   protocol         = "tcp"
-   from_port        = 80
-   to_port          = 80
-   cidr_blocks      = ["0.0.0.0/0"]
-   ipv6_cidr_blocks = ["::/0"]
+
+  ingress {
+    protocol         = "tcp"
+    from_port        = 80
+    to_port          = 80
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
   }
 
   ingress {
@@ -45,7 +45,7 @@ resource "aws_security_group" "ecs_tasks" {
     security_groups = [aws_security_group.lb.id]
     cidr_blocks     = ["0.0.0.0/0"]
   }
-ingress {
+  ingress {
     protocol        = "TCP"
     from_port       = 80
     to_port         = 80
@@ -53,7 +53,7 @@ ingress {
     cidr_blocks     = ["0.0.0.0/0"]
   }
 
-   ingress {
+  ingress {
     protocol        = "TCP"
     from_port       = 443
     to_port         = 443
