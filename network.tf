@@ -26,11 +26,11 @@ resource "aws_internet_gateway" "gw" {
 }
 
 resource "aws_route" "internet_access" {
-  count                  = length(aws_nat_gateway.gw)
+  count = var.az_count
   route_table_id         = aws_vpc.main.main_route_table_id
   destination_cidr_block = "0.0.0.0/0"
   # gateway_id             = aws_internet_gateway.gw.id
-  nat_gateway_id = aws_nat_gateway.gw[count.index].id
+  nat_gateway_id = element(aws_nat_gateway.gw.*.id, count.index)
 }
 resource "aws_route" "public" {
   route_table_id         = aws_route_table.public.id
