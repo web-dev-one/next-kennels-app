@@ -25,7 +25,6 @@
 
 resource "aws_route53_zone" "kennelsdomain_name" {
   name = var.domainName
-
 }
 
 resource "aws_acm_certificate" "hello_certificate" {
