@@ -2,6 +2,7 @@ output "alb_hostname" {
   value = aws_alb.main.dns_name
 }
 
+
 output "name_servers" {
   description = "DNS Name servers used for the zone"
   value       = aws_route53_zone.kennelsdomain_name.name_servers

@@ -144,12 +144,21 @@ variable "build_image" {
 }
 
 variable "subnets" {
-  default = {
-    sub1    = "subnet-006ca041b39be80b4"
-    sub1    = "subnet-0246fdc7061db53e1"
-    sub1    = "subnet-00f5314740a1192ce"
-    pubsub2 = "subnet-0398c1444d2832c06"
-    pubsub3 = "subnet-0c613fbfbfb5a6f2a"
-    pubsub3 = "subnet-0c613fbfbfb5a6f2a"
-  }
+  # default = {
+  #   sub1    = "subnet-03abb2d6a7b8bd754"
+  #   sub1    = "subnet-09103e8b1f18617b4"
+  #   sub1    = "subnet-001b4e02a2cf8837d"
+  #   pubsub2 = "subnet-0441cacc63f7bc083"
+  #   pubsub3 = "subnet-0e87c5a524af2217e"
+  #   pubsub3 = "subnet-0a13b28e34bf115b2"
+  # } 
+  default = [
+     "subnet-08168f5529c9f97d9"
+    ,"subnet-0688c9b9b9972a2b8"
+    ,"subnet-06e67c67f85704b24"
+    ,"subnet-018a77d2c2a24475a"
+    ,"subnet-0d9f301ca8b35cda2"
+    ,"subnet-03a39e004cc93cbc2"
+    
+    ]
 }
