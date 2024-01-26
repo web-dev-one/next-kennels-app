@@ -270,18 +270,6 @@ resource "aws_iam_role_policy" "codedeploy" {
 }
 
 
-data "aws_iam_policy_document" "assume_by_ecs" {
-  statement {
-    sid     = "AllowAssumeByEcsTasks"
-    effect  = "Allow"
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["ecs-tasks.amazonaws.com"]
-    }
-  }
-}
 
 data "aws_iam_policy_document" "execution_role" {
   statement {
@@ -317,25 +305,6 @@ data "aws_iam_policy_document" "task_role" {
   }
 }
 
-resource "aws_iam_role" "execution_role" {
-  name               = "${var.region}-${var.name}_ecsTaskExecutionRole"
-  assume_role_policy = data.aws_iam_policy_document.assume_by_ecs.json
-}
-
-resource "aws_iam_role_policy" "execution_role" {
-  role   = aws_iam_role.execution_role.name
-  policy = data.aws_iam_policy_document.execution_role.json
-}
-
-resource "aws_iam_role" "task_role" {
-  name               = "${var.region}-${var.name}_ecsTaskRole"
-  assume_role_policy = data.aws_iam_policy_document.assume_by_ecs.json
-}
-
-resource "aws_iam_role_policy" "task_role" {
-  role   = aws_iam_role.task_role.name
-  policy = data.aws_iam_policy_document.task_role.json
-}
 
 data "aws_iam_policy_document" "assume_by_codedeploy" {
   statement {
@@ -349,3 +318,45 @@ data "aws_iam_policy_document" "assume_by_codedeploy" {
     }
   }
 }
+
+
+## ECS ##
+
+resource "aws_iam_role" "task_role" {
+  name               = "ecs-example-task-role"
+  assume_role_policy = "${data.aws_iam_policy_document.assume_by_ecs.json}"
+}
+
+
+data "aws_iam_policy_document" "assume_by_ecs" {
+  statement {
+    sid     = "AllowAssumeByEcsTasks"
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["ecs-tasks.amazonaws.com"]
+    }
+  }
+}
+
+
+
+resource "aws_iam_role" "execution_role" {
+  name               = "ecs-example-execution-role"
+  assume_role_policy = "${data.aws_iam_policy_document.assume_by_ecs.json}"
+}
+
+resource "aws_iam_role_policy" "execution_role" {
+  role   = "${aws_iam_role.execution_role.name}"
+  policy = "${data.aws_iam_policy_document.execution_role.json}"
+}
+
+
+resource "aws_iam_role_policy" "task_role" {
+  role   = "${aws_iam_role.task_role.name}"
+  policy = "${data.aws_iam_policy_document.task_role.json}"
+}
+
+
