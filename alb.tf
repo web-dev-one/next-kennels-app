@@ -54,7 +54,7 @@ resource "aws_alb_listener" "https" {
   protocol          = "HTTPS"
   certificate_arn   = aws_acm_certificate_validation.kennels.certificate_arn
   default_action {
-    target_group_arn = aws_alb_target_group.app2.id
+    target_group_arn = aws_alb_target_group.app.id
     type             = "forward"
   }
 
