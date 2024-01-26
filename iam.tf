@@ -126,13 +126,30 @@ data "aws_iam_policy_document" "ecs_task_execution_role" {
 
     principals {
       type        = "Service"
-      identifiers = ["ecs-tasks.amazonaws.com", "ecs.amazonaws.com"]
+      identifiers = ["ecs-tasks.amazonaws.com"]
+    }
+
+  }
+    statement {
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["ecs.amazonaws.com"]
+    }
+  }
+      statement {
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["codedeploy.amazonaws.com"]
     }
   }
 }
 
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name               = "${var.name}-ecs-task-execution-role"
+  name               = "ECS-AssumeRole-${var.name}-ecs-task-execution-role"
   assume_role_policy = data.aws_iam_policy_document.ecs_task_execution_role.json
 }
 
