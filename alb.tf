@@ -1,9 +1,11 @@
 resource "aws_alb" "main" {
+  
   name = "load-balancer"
   # subnets         = [for subnet in aws_subnet.pub.*: subnet.id ]
   # subnets = [for subnet in var.subnets: subnet]
-  subnets         = [for subnet in aws_subnet.pub : subnet.id]
-  security_groups = [aws_security_group.lb.id]
+  # subnets         = [for subnet in aws_subnet.pub : subnet.id]
+  subnets =  aws_subnet.pub.*.id 
+  security_groups = [aws_security_group.lb.id, aws_security_group.ecs_tasks.id]
 }
 
 resource "aws_alb_target_group" "app" {
@@ -35,7 +37,7 @@ resource "aws_alb_listener" "front_end" {
     redirect {
       port        = 443
       protocol    = "HTTPS"
-      status_code = "HTTP_301"
+      status_code = "HTTP_302"
     }
   }
 
