@@ -4,7 +4,7 @@ resource "aws_alb" "main" {
   # subnets         = [for subnet in aws_subnet.pub.*: subnet.id ]
   # subnets = [for subnet in var.subnets: subnet]
   # subnets         = [for subnet in aws_subnet.pub : subnet.id]
-  subnets =  aws_subnet.pub.*.id 
+  subnets =  aws_subnet.pri.*.id 
   security_groups = [aws_security_group.lb.id, aws_security_group.ecs_tasks.id]
 }
 
@@ -81,7 +81,7 @@ resource "aws_alb_listener" "front_end2" {
   protocol          = "HTTP"
 
   default_action {
-    target_group_arn = aws_alb_target_group.app2.id
+    target_group_arn = aws_alb_target_group.app.id
     type             = "forward"
   }
 }
