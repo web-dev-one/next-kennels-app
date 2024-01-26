@@ -245,7 +245,8 @@ data "aws_iam_policy_document" "codedeploy" {
       "s3:*",
       "codedeploy:*",
       "iam:*",
-      "route53:*"
+      "route53:*",
+      "ecr:*"
     ]
 
     resources = ["*"]
@@ -260,6 +261,8 @@ data "aws_iam_policy_document" "codedeploy" {
     resources = [
       "${aws_iam_role.execution_role.arn}",
       "${aws_iam_role.task_role.arn}",
+      "${aws_iam_role.codedeploy.arn}",
+      "${aws_iam_role.app_task_role.arn}"
     ]
   }
 }
