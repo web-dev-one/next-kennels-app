@@ -1,6 +1,6 @@
 resource "aws_alb" "main" {
   
-  name = "load-balancer"
+  name = "${var.name}-load-balancer"
   # subnets         = [for subnet in aws_subnet.pub.*: subnet.id ]
   # subnets = [for subnet in var.subnets: subnet]
   # subnets         = [for subnet in aws_subnet.pub : subnet.id]

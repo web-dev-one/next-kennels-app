@@ -16,6 +16,8 @@ provider "aws" {
   }
 }
 
+
+
 ## shell script setups ##
 
 # resource "null_resource" "shell" {
