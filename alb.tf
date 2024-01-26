@@ -19,7 +19,7 @@ resource "aws_alb_target_group" "app" {
     healthy_threshold   = "3"
     interval            = "30"
     protocol            = "HTTP"
-    matcher             = "200,301,302,404"
+    matcher             = "200-399"
     timeout             = "3"
     path                = var.health_check_path
     unhealthy_threshold = "2"
@@ -38,7 +38,7 @@ resource "aws_alb_target_group" "app2" {
     healthy_threshold   = "3"
     interval            = "30"
     protocol            = "HTTP"
-    matcher             = "200,301,302,404"
+    matcher             = "200-399"
     timeout             = "3"
     path                = var.health_check_path
     unhealthy_threshold = "2"
