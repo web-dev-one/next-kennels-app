@@ -222,7 +222,7 @@ data "aws_iam_policy_document" "codedeploy" {
     actions = ["iam:PassRole"]
 
     resources = [
-      "${aws_iam_role.execution_role.arn}",
+      "${aws_iam_role.ecs_task_execution_role.arn}",
       "${aws_iam_role.task_role.arn}",
       "${aws_iam_role.codedeploy.arn}",
       # "${aws_iam_role.app_task_role.arn}"
@@ -261,26 +261,6 @@ data "aws_iam_policy_document" "execution_role" {
   }
 }
 
-data "aws_iam_policy_document" "task_role" {
-  statement {
-    sid    = "AllowDescribeCluster"
-    effect = "Allow"
-
-    actions = ["ecs:*"]
-
-    resources = ["${aws_ecs_cluster.main.arn}"]
-  }
-
-  statement {
-    sid    = ""
-    effect = "Allow"
-
-    actions = ["iam:*", "ecr:*", "codedeploy:*"]
-
-    resources = ["${aws_ecs_cluster.main.arn}"]
-  }
-}
-
 
 data "aws_iam_policy_document" "assume_by_codedeploy" {
   statement {
@@ -300,89 +280,25 @@ data "aws_iam_policy_document" "assume_by_codedeploy" {
 
 
 
-resource "aws_iam_role" "task_role" {
-  name               = "ecs-example-task-role"
-  assume_role_policy = data.aws_iam_policy_document.assume_by_ecs.json
-}
 
 
-data "aws_iam_policy_document" "assume_by_ecs" {
-  statement {
-    sid     = "AllowAssumeByEcsTasks"
-    effect  = "Allow"
-    actions = ["sts:AssumeRole"]
-    principals {
-      type        = "Service"
-      identifiers = ["ecs-tasks.amazonaws.com"]
-    }
-  }
-
-  statement {
-    sid     = ""
-    effect  = "Allow"
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["iam.amazonaws.com"]
-    }
-  }
-
-  statement {
-    sid     = ""
-    effect  = "Allow"
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["ecs.amazonaws.com"]
-    }
-  }
-
-  statement {
-    sid     = ""
-    effect  = "Allow"
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["codepipeline.amazonaws.com"]
-    }
-  }
-
-  statement {
-    sid     = ""
-    effect  = "Allow"
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["codedeploy.amazonaws.com"]
-    }
-  }
-}
-
-resource "aws_iam_role_policy_attachment" "ecs-task-role-policy-attachment" {
-  role       = aws_iam_role.task_role.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
-}
-
-resource "aws_iam_role" "execution_role" {
-  name               = "ecs-example-execution-role"
-  assume_role_policy = data.aws_iam_policy_document.assume_by_ecs.json
-}
 
 
-resource "aws_iam_role_policy" "execution_role" {
-  role   = aws_iam_role.execution_role.name
-  policy = data.aws_iam_policy_document.execution_role.json
-}
 
 
-resource "aws_iam_role_policy" "task_role" {
-  role   = aws_iam_role.task_role.name
-  policy = data.aws_iam_policy_document.task_role.json
-}
+# resource "aws_iam_role" "execution_role" {
+#   name               = "ecs-example-execution-role"
+#   assume_role_policy = data.aws_iam_policy_document.assume_by_ecs.json
+# }
+
+
+# resource "aws_iam_role_policy" "execution_role" {
+#   role   = aws_iam_role.execution_role.name
+#   policy = data.aws_iam_policy_document.execution_role.json
+# }
+
+
+
 
 # resource "aws_iam_role" "app_task_role" {
 #   name = "app-task-role"

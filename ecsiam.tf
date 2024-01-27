@@ -1,3 +1,95 @@
+#task#
+resource "aws_iam_role" "task_role" {
+  name               = "ecs-example-task-role"
+  assume_role_policy = data.aws_iam_policy_document.assume_by_ecs.json
+}
+
+resource "aws_iam_role_policy" "task_role" {
+  role   = aws_iam_role.task_role.name
+  policy = data.aws_iam_policy_document.task_role.json
+}
+
+resource "aws_iam_role_policy_attachment" "ecs-task-role-policy-attachment" {
+  role       = aws_iam_role.task_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+}
+
+data "aws_iam_policy_document" "task_role" {
+  statement {
+    sid    = "AllowDescribeCluster"
+    effect = "Allow"
+
+    actions = ["ecs:*"]
+
+    resources = ["*"]
+  }
+    statement {
+    sid    = ""
+    effect = "Allow"
+
+    actions = ["iam:*", "ecr:*", "codedeploy:*"]
+
+    resources = ["${aws_ecs_cluster.main.arn}"]
+  }
+}
+
+data "aws_iam_policy_document" "assume_by_ecs" {
+  statement {
+    sid     = "AllowAssumeByEcsTasks"
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
+    principals {
+      type        = "Service"
+      identifiers = ["ecs-tasks.amazonaws.com", "ecs.amazonaws.com"]
+    }
+  }
+
+  statement {
+    sid     = ""
+    effect  = "Allow"
+    actions = ["elasticloadbalancing:*", "application-autoscaling:*","resource-groups:*","iam:*", "sts:AssumeRole", "ecs:*", "cloudwatch:*", "codedeploy:*", "autoscaling:*"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["iam.amazonaws.com"]
+    }
+  }
+
+  statement {
+    sid     = ""
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["ecs.amazonaws.com"]
+    }
+  }
+
+  statement {
+    sid     = ""
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["codepipeline.amazonaws.com"]
+    }
+  }
+
+  statement {
+    sid     = ""
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["codedeploy.amazonaws.com"]
+    }
+  }
+}
+
+#execution#
 resource "aws_iam_role" "ecs_task_execution_role" {
   name = "${var.name}-ecsTaskExecutionRole-sts"
 
