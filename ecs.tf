@@ -67,5 +67,5 @@ resource "aws_ecs_service" "main" {
     container_port   = 3000
   }
 
-  depends_on = [aws_alb_listener.front_end, aws_iam_role.ecs_task_execution_role]
+  depends_on = [aws_alb_listener.front_end, aws_iam_role.ecs_task_execution_role, aws_iam_role.ecs_task_role]
 }
