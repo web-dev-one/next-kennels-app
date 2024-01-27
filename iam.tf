@@ -327,7 +327,7 @@ data "aws_iam_policy_document" "assume_by_codedeploy" {
 
 
 
- 
+
 
 
 
@@ -339,7 +339,7 @@ data "aws_iam_policy_document" "assume_by_codedeploy" {
 
 # resource "aws_iam_role" "ecs_task_role" {
 #   name = "${var.name}-ecsTaskRole"
- 
+
 #   assume_role_policy = <<EOF
 # {
 #  "Version": "2012-10-17",
@@ -379,7 +379,7 @@ data "aws_iam_policy_document" "ecs_service_role_policy" {
 resource "aws_iam_role" "ecs_service_role" {
   assume_role_policy = data.aws_iam_policy_document.ecs_service_role_policy.json
   name               = "EcsCluster-ServiceRole"
- 
+
 }
 
 resource "aws_iam_role_policy_attachment" "service_role" {
@@ -438,9 +438,9 @@ resource "aws_iam_policy" "ecs_service_passrole" {
 
 data "aws_iam_policy_document" "ecs_passrole" {
   statement {
-    actions = ["iam:*", "sts:AssumeRole", "ecs:*", "cloudwatch:*"]
-    sid     = ""
-    effect  = "Allow"
-     resources = ["*"]
+    actions   = ["iam:*", "sts:AssumeRole", "ecs:*", "cloudwatch:*"]
+    sid       = ""
+    effect    = "Allow"
+    resources = ["*"]
   }
 }

@@ -23,7 +23,7 @@ data "aws_iam_policy_document" "task_role" {
 
     resources = ["*"]
   }
-    statement {
+  statement {
     sid    = ""
     effect = "Allow"
 
@@ -46,7 +46,7 @@ data "aws_iam_policy_document" "assume_by_ecs" {
 }
 #execution#
 resource "aws_iam_role" "ecs_task_execution_role" {
-    
+
   name = "${var.image_repo_name}-ecsTaskExecutionRole"
 
   assume_role_policy = <<EOF
@@ -81,10 +81,10 @@ resource "aws_iam_policy" "ecs_execution_passrole" {
 
 data "aws_iam_policy_document" "execution_passrole" {
   statement {
-    actions = ["elasticloadbalancing:*", "application-autoscaling:*","resource-groups:*","iam:*", "sts:AssumeRole", "ecs:*", "cloudwatch:*", "codedeploy:*", "autoscaling:*"]
-    sid     = ""
-    effect  = "Allow"
-     resources = ["*"]
+    actions   = ["elasticloadbalancing:*", "application-autoscaling:*", "resource-groups:*", "iam:*", "sts:AssumeRole", "ecs:*", "cloudwatch:*", "codedeploy:*", "autoscaling:*"]
+    sid       = ""
+    effect    = "Allow"
+    resources = ["*"]
   }
 }
 
