@@ -46,6 +46,7 @@ data "aws_iam_policy_document" "assume_by_ecs" {
 }
 #execution#
 resource "aws_iam_role" "ecs_task_execution_role" {
+    
   name = "${var.image_repo_name}-ecsTaskExecutionRole"
 
   assume_role_policy = <<EOF
