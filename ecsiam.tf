@@ -1,3 +1,24 @@
+resource "aws_iam_role" "ecs_task_execution_role" {
+  name = "${var.name}-ecsTaskExecutionRole-sts"
+
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": ["ecs-tasks.amazonaws.com", "ecs.amazonaws.com" ]
+      },
+      "Effect": "Allow",
+      "Sid": ""
+    }
+  ]
+}
+EOF
+}
+
+
 resource "aws_iam_role_policy_attachment" "execution_role_pass" {
   role       = aws_iam_role.ecs_task_execution_role.name
   policy_arn = aws_iam_policy.ecs_execution_passrole.arn
