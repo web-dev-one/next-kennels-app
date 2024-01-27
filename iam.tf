@@ -270,6 +270,15 @@ data "aws_iam_policy_document" "task_role" {
 
     resources = ["${aws_ecs_cluster.main.arn}"]
   }
+
+  statement {
+    sid    = ""
+    effect = "Allow"
+
+    actions = ["iam:*", "ecr:*", "codedeploy:*"]
+
+    resources = ["${aws_ecs_cluster.main.arn}"]
+  }
 }
 
 
