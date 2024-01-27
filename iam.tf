@@ -354,6 +354,17 @@ data "aws_iam_policy_document" "assume_by_ecs" {
       identifiers = ["iam.amazonaws.com"]
     }
   }
+
+    statement {
+    sid     = ""
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["ecs.amazonaws.com"]
+    }
+  }
 }
 
 
