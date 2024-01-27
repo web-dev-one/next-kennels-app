@@ -420,7 +420,7 @@ resource "aws_iam_role" "ecs_task_execution_role" {
     {
       "Action": "sts:AssumeRole",
       "Principal": {
-        "Service": ["ecs-tasks.amazonaws.com" ]
+        "Service": ["ecs-tasks.amazonaws.com", "ecs.amazonaws.com" ]
       },
       "Effect": "Allow",
       "Sid": ""
