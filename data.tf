@@ -4,5 +4,5 @@ data "aws_lb" "default" {
 
 data "aws_alb_listener" "https" {
   load_balancer_arn = data.aws_lb.default.arn
-  port = 443
+  port              = 443
 }
