@@ -43,55 +43,10 @@ data "aws_iam_policy_document" "assume_by_ecs" {
       identifiers = ["ecs-tasks.amazonaws.com", "ecs.amazonaws.com"]
     }
   }
-
-  statement {
-    sid     = ""
-    effect  = "Allow"
-    actions = ["elasticloadbalancing:*", "application-autoscaling:*","resource-groups:*","iam:*", "sts:AssumeRole", "ecs:*", "cloudwatch:*", "codedeploy:*", "autoscaling:*"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["iam.amazonaws.com"]
-    }
-  }
-
-  statement {
-    sid     = ""
-    effect  = "Allow"
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["ecs.amazonaws.com"]
-    }
-  }
-
-  statement {
-    sid     = ""
-    effect  = "Allow"
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["codepipeline.amazonaws.com"]
-    }
-  }
-
-  statement {
-    sid     = ""
-    effect  = "Allow"
-    actions = ["sts:AssumeRole"]
-
-    principals {
-      type        = "Service"
-      identifiers = ["codedeploy.amazonaws.com"]
-    }
-  }
 }
-
 #execution#
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name = "${var.name}-ecsTaskExecutionRole-sts"
+  name = "${var.image_repo_name}-ecsTaskExecutionRole"
 
   assume_role_policy = <<EOF
 {
