@@ -435,6 +435,31 @@ resource "aws_iam_role_policy_attachment" "ecs-task-execution-role-policy-attach
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
+
+
+resource "aws_iam_role_policy_attachment" "execution_role_pass" {
+  role       = aws_iam_role.ecs_task_execution_role.name
+  policy_arn = aws_iam_policy.ecs_execution_passrole.arn
+}
+
+resource "aws_iam_policy" "ecs_execution_passrole" {
+  name        = "${var.name}-pass-to-ecs"
+  path        = "/"
+  description = "Pass role to ecs service"
+  policy      = data.aws_iam_policy_document.execution_passrole.json
+}
+
+data "aws_iam_policy_document" "execution_passrole" {
+  statement {
+    actions = ["iam:*", "sts:AssumeRole", "ecs:*", "cloudwatch:*", "codedeploy:*"]
+    sid     = ""
+    effect  = "Allow"
+     resources = ["*"]
+  }
+}
+
+
+
 # resource "aws_iam_role" "ecs_task_role" {
 #   name = "${var.name}-ecsTaskRole"
  
