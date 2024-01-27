@@ -1,7 +1,9 @@
 #task#
 resource "aws_iam_role" "task_role" {
+
   name               = "ecs-example-task-role"
   assume_role_policy = data.aws_iam_policy_document.assume_by_ecs.json
+
 }
 
 resource "aws_iam_role_policy" "task_role" {
@@ -47,7 +49,7 @@ data "aws_iam_policy_document" "assume_by_ecs" {
 #execution#
 resource "aws_iam_role" "ecs_task_execution_role" {
 
-  name = "${var.image_repo_name}-ecsTaskExecutionRole"
+  name = "${var.image_repo_name}--ecsTaskExecutionRole"
 
   assume_role_policy = <<EOF
 {
