@@ -411,7 +411,7 @@ resource "aws_iam_role_policy" "task_role" {
 
 
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name = "${var.name}-ecsTaskExecutionRole"
+  name = "${var.name}-ecsTaskExecutionRole-sts"
 
   assume_role_policy = <<EOF
 {
@@ -443,7 +443,7 @@ resource "aws_iam_role_policy_attachment" "execution_role_pass" {
 }
 
 resource "aws_iam_policy" "ecs_execution_passrole" {
-  name        = "${var.name}-pass-to-ecs"
+  name        = "${var.name}-pass-to-ecs-exec"
   path        = "/"
   description = "Pass role to ecs service"
   policy      = data.aws_iam_policy_document.execution_passrole.json
