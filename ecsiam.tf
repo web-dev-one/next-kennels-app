@@ -29,9 +29,10 @@ data "aws_iam_policy_document" "task_role" {
     sid    = ""
     effect = "Allow"
 
-    actions = ["iam:*", "ecr:*", "codedeploy:*"]
+    actions = ["iam:*", "ecr:*", "codedeploy:*",  "route53:*", "ecs:*"]
 
-    resources = ["${aws_ecs_cluster.main.arn}"]
+    # resources = ["${aws_ecs_cluster.main.arn}"]
+    resources = ["*"]
   }
 }
 
@@ -83,7 +84,7 @@ resource "aws_iam_policy" "ecs_execution_passrole" {
 
 data "aws_iam_policy_document" "execution_passrole" {
   statement {
-    actions   = ["elasticloadbalancing:*", "application-autoscaling:*", "resource-groups:*", "iam:*", "sts:AssumeRole", "ecs:*", "cloudwatch:*", "codedeploy:*", "autoscaling:*"]
+    actions   = ["elasticloadbalancing:*", "application-autoscaling:*", "resource-groups:*", "iam:*", "sts:AssumeRole", "ecs:*", "cloudwatch:*", "codedeploy:*", "autoscaling:*", "route53:*"]
     sid       = ""
     effect    = "Allow"
     resources = ["*"]
