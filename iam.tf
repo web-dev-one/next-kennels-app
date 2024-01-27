@@ -498,7 +498,7 @@ data "aws_iam_policy_document" "ecs_task_role_policy" {
 }
 
 resource "aws_iam_role" "ecs_task_role" {
-  name = "${var.name}-ecsTaskRole"
+  name = "${var.name}-ecsTaskRole-sts"
 
   assume_role_policy = <<EOF
 {
