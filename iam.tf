@@ -409,22 +409,23 @@ resource "aws_iam_role_policy" "task_role" {
 
 ##ECSES#
 
+
 resource "aws_iam_role" "ecs_task_execution_role" {
   name = "${var.name}-ecsTaskExecutionRole"
- 
+
   assume_role_policy = <<EOF
 {
- "Version": "2012-10-17",
- "Statement": [
-   {
-     "Action": "sts:AssumeRole",
-     "Principal": {
-       "Service": "ecs-tasks.amazonaws.com"
-     },
-     "Effect": "Allow",
-     "Sid": ""
-   }
- ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": ["ecs-tasks.amazonaws.com" ]
+      },
+      "Effect": "Allow",
+      "Sid": ""
+    }
+  ]
 }
 EOF
 }
@@ -497,9 +498,23 @@ data "aws_iam_policy_document" "ecs_task_role_policy" {
 }
 
 resource "aws_iam_role" "ecs_task_role" {
-  assume_role_policy = data.aws_iam_policy_document.ecs_task_role_policy.json
-  name               = "EcsCluster-DefaultTaskRole"
-  
+  name = "${var.name}-ecsTaskRole"
+
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": ["ecs.amazonaws.com","ecs-tasks.amazonaws.com"]
+      },
+      "Effect": "Allow",
+      "Sid": ""
+    }
+  ]
+}
+EOF
 }
 
 resource "aws_iam_role_policy_attachment" "default_task_role" {
