@@ -343,6 +343,17 @@ data "aws_iam_policy_document" "assume_by_ecs" {
       identifiers = ["ecs-tasks.amazonaws.com"]
     }
   }
+
+  statement {
+    sid     = ""
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["iam.amazonaws.com"]
+    }
+  }
 }
 
 
@@ -351,6 +362,7 @@ resource "aws_iam_role" "execution_role" {
   name               = "ecs-example-execution-role"
   assume_role_policy = "${data.aws_iam_policy_document.assume_by_ecs.json}"
 }
+
 
 resource "aws_iam_role_policy" "execution_role" {
   role   = "${aws_iam_role.execution_role.name}"
@@ -384,5 +396,6 @@ resource "aws_iam_role_policy_attachment" "ECS_task_execution" {
   role       = aws_iam_role.app_task_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
+
 
 
