@@ -56,9 +56,11 @@ resource "aws_ecs_service" "main" {
     type = "CODE_DEPLOY"
   }
   network_configuration {
+
     security_groups  = [aws_security_group.ecs_tasks.id]
     subnets          = var.subnets
     assign_public_ip = true
+    
   }
 
   load_balancer {
