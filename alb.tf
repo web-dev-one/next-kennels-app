@@ -5,11 +5,11 @@ resource "aws_alb" "main" {
   # subnets = [for subnet in var.subnets: subnet]
   # subnets         = [for subnet in aws_subnet.pub : subnet.id]
   subnets         = aws_subnet.pub.*.id
-  security_groups = [aws_security_group.lb.id, aws_security_group.ecs_tasks.id]
+  security_groups = [aws_security_group.lb.id]
 }
 
 resource "aws_alb_target_group" "app" {
-  name        = "target-group-https"
+  name        = "target-group-http"
   port        = 80
   protocol    = "HTTP"
   vpc_id      = aws_vpc.main.id
