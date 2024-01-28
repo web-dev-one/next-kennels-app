@@ -91,3 +91,15 @@ resource "aws_alb_listener" "front_end2" {
     type             = "forward"
   }
 }
+
+resource "aws_alb_listener" "front_end2" {
+
+  load_balancer_arn = aws_alb.main.id
+  port              = 3000
+  protocol          = "HTTP"
+
+  default_action {
+    target_group_arn = aws_alb_target_group.app2.id
+    type             = "forward"
+  }
+}
