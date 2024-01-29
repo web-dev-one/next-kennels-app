@@ -14,3 +14,9 @@ output "hosted_zone_id" {
   value       = aws_route53_zone.kennelsdomain_name.zone_id
 }
 
+output "subnet_pub_ids"{
+  value = aws_subnet.pub.*.id
+}
+output "subnet_pri_ids"{
+  value = aws_subnet.pri.*.id
+}
