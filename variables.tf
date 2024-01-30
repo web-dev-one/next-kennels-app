@@ -105,13 +105,13 @@ variable "health_check_path" {
 variable "fargate_cpu" {
   type        = string
   description = "CPU to provision for Fargate instances."
-  default     = 1024
+  default     = 2048
 }
 
 variable "fargate_memory" {
   type        = string
   description = "Fargate instance memory to provision."
-  default     = 2048
+  default     = 4096
 }
 
 variable "main_cidr" {
@@ -153,12 +153,12 @@ variable "subnets" {
   #   pubsub3 = "subnet-0a13b28e34bf115b2"
   # } 
   default = [
-    "subnet-02417aeb080ff43ef"
-    , "subnet-04149fd107d307c81"
-    , "subnet-00f833ab8590e2d8c"
-    , "subnet-02b2aa87d644eb94e"
-    , "subnet-07a4f1b4783aa168b"
-    , "subnet-04ac8418512efcea0"
+    "subnet-084e598b60e531800"
+    , "subnet-0805c95566d2d5f81"
+    , "subnet-0254f766bab168d03"
+    , "subnet-0283181efc4896612"
+    , "subnet-088182c48551a3c40"
+    , "subnet-066894f2a3e083ae4"
 
   ]
 }
