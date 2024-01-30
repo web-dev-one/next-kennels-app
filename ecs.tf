@@ -58,13 +58,13 @@ resource "aws_ecs_service" "main" {
   network_configuration {
 
     security_groups  = [aws_security_group.ecs_tasks.id]
-    subnets          = var.subnets # aws_subnet.pub.*.id  #
+    subnets          = aws_subnet.pub.*.id # var.subnets # aws_subnet.pub.*.id  #
     assign_public_ip = true
 
   }
 
   load_balancer {
-    target_group_arn = aws_alb_target_group.app.id
+    target_group_arn = aws_alb_target_group.app2.id
     container_name   = var.image_repo_name
     container_port   = 3000
   }

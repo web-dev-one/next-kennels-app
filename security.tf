@@ -33,7 +33,29 @@ resource "aws_security_group" "lb" {
   }
 }
 
-# Traffic to the ECS cluster should only come from the ALB
+# resource "aws_security_group" "aws-crud-service_security_group" {
+#   ingress {
+#     from_port = 3000
+#     to_port   = 3000
+#     protocol  = "TCP"
+#     # Only allowing traffic in from the load balancer security group
+#     security_groups = ["${aws_security_group.lb.id}"]
+#   }
+#   ingress {
+#     from_port = 80
+#     to_port   = 80
+#     protocol  = "TCP"
+#     # Only allowing traffic in from the load balancer security group
+#     security_groups = ["${aws_security_group.lb.id}"]
+#   }
+#   egress {
+#     from_port   = 0             # Allowing any incoming port
+#     to_port     = 0             # Allowing any outgoing port
+#     protocol    = "-1"          # Allowing any outgoing protocol 
+#     cidr_blocks = ["0.0.0.0/0"] # Allowing traffic out to all IP addresses
+#   }
+# }
+# # Traffic to the ECS cluster should only come from the ALB
 resource "aws_security_group" "ecs_tasks" {
   name        = "ecs-tasks-security-group"
   description = "allow inbound access from the ALB only"
