@@ -64,10 +64,10 @@ resource "aws_ecs_service" "main" {
   }
 
   load_balancer {
-    target_group_arn = aws_alb_target_group.app2.id
+    target_group_arn = aws_lb_target_group.tg[0].id 
     container_name   = var.image_repo_name
     container_port   = 3000
   }
 
-  depends_on = [aws_alb_listener.front_end, aws_iam_role.ecs_task_execution_role, aws_iam_role.ecs_task_role]
+  depends_on = [aws_alb_listener.l_8080, aws_iam_role.ecs_task_execution_role, aws_iam_role.ecs_task_role]
 }

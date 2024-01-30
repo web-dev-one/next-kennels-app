@@ -41,13 +41,13 @@ resource "aws_codedeploy_deployment_group" "this" {
   load_balancer_info {
     target_group_pair_info {
       prod_traffic_route {
-        listener_arns = [aws_alb_listener.front_end.arn ]
+        listener_arns = [aws_alb_listener.l_443.arn ]
       }
       target_group {
-        name = aws_alb_target_group.app2.name
+        name = aws_lb_target_group.tg[0].name
       }
       target_group {
-        name = aws_alb_target_group.app.name
+        name = aws_lb_target_group.tg[1].name
       }
     }
   }
