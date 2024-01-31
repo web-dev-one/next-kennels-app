@@ -153,12 +153,12 @@ variable "subnets" {
   #   pubsub3 = "subnet-0a13b28e34bf115b2"
   # } 
   default = [
-    "subnet-0610c8cffc9c4e7e5"
-    , "subnet-0bf431f6fcb9a6ce3"
-    , "subnet-0fa3b9289ccb73431"
-    , "subnet-028a456e68d8f0cb8"
-    , "subnet-0671aad42e35fd809"
-    , "subnet-082b05c56a508af2f"
+    "subnet-003acc056188221c2"
+    , "subnet-0cd0fbe6458e588b9"
+    , "subnet-0bfcaf443e18fb4a6"
+    , "subnet-092a32a1d349dbd77"
+    , "subnet-0441fd33f98a735ea"
+    , "subnet-0db6b4da8981e9224"
 
   ]
 }
