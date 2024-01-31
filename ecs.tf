@@ -50,7 +50,7 @@ resource "aws_ecs_service" "main" {
 
   deployment_minimum_healthy_percent = 50
   deployment_maximum_percent         = 100
-  health_check_grace_period_seconds  = 300
+  health_check_grace_period_seconds  = 900
 
   deployment_controller {
     type = "CODE_DEPLOY"
