@@ -134,7 +134,7 @@ resource "aws_codebuild_project" "codebuild" {
     }
     environment_variable {
       name  = "SECURITYGROUPS"
-      value = aws_security_group.lb.id
+      value = aws_security_group.ecs_tasks.id
     }
     environment_variable {
       name  = "SERVICE_PORT"

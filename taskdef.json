@@ -10,7 +10,7 @@
         "portMappings": [
           {
             "hostPort": <SERVICE_PORT>,
-            "protocol": "tcp",
+            "protocol": "TCP",
             "containerPort": <SERVICE_PORT>
           }
         ]
