@@ -37,7 +37,7 @@ export default function ContactForm() {
           handleSubmit(200);
         },
         (error) => {
-          // console.log(error.text);
+          console.log(error);
           handleSubmit(404);
         }
       );

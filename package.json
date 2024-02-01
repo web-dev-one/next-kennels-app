@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start -p 3000",
     "generate": "next build && next export && next-image-export-optimizer",
-    "export": "next build && next export && next-image-export-optimizer"
+    "export": "next build && next export && next-image-export-optimizer",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",

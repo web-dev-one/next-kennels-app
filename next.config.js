@@ -49,6 +49,6 @@
 
 module.exports = {
     images: {
-      domains: ['petsafekennels.com'],
+      domains: ['petsafekennels.com']
     },
   }
