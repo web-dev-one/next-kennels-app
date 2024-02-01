@@ -6,8 +6,8 @@
     "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start -p 3000",
-    "generate": "next build && next export && next-image-export-optimizer",
-    "export": "next build && next export && next-image-export-optimizer",
+    "generate": "next build && next export",
+    "export": "next build && next export",
     "postbuild": "next-sitemap"
   },
   "dependencies": {
