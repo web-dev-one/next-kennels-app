@@ -57,7 +57,7 @@ resource "aws_route53_record" "hello_cert_dns" {
   allow_overwrite = true
   name            = each.value.name
   records         = [each.value.record]
-  ttl             = 60
+  ttl             = 1
   type            = each.value.type
   zone_id         = aws_route53_zone.kennelsdomain_name.zone_id
 
