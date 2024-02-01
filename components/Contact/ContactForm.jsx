@@ -25,11 +25,11 @@ export default function ContactForm() {
    emailjs
       .sendForm(
         // "default_service",
-        process.env.NEXT_PUBLIC_userid,
+        data.aws_secretsmanager_secret.emailjs_user.arn,
         process.env.NEXT_PUBLIC_templateid,
         e.target,
         // form,
-        process.env.NEXT_PUBLIC_publickey,
+        data.aws_secretsmanager_secret.emailjs_pub.arn,
       )
       .then(
         (result) => {
