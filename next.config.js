@@ -51,4 +51,9 @@ module.exports = {
     images: {
       domains: ['petsafekennels.com']
     },
+    env: {
+      NEXT_PUBLIC_publickey: process.env.NEXT_PUBLIC_publickey,
+      NEXT_PUBLIC_userid: process.env.NEXT_PUBLIC_userid,
+      NEXT_PUBLIC_templateid: process.env.NEXT_PUBLIC_templateid
+    }
   }
