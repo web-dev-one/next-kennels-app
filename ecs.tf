@@ -23,6 +23,7 @@ resource "aws_ecs_task_definition" "app" {
         "hostPort": 3000
       }
     ],
+    
     "logConfiguration": {
       "logDriver": "awslogs",
       "options": {

@@ -152,21 +152,18 @@ resource "aws_codebuild_project" "codebuild" {
       name  = "PUBSUBNET2"
       value = aws_subnet.pub[2].id
     }
-    # environment_variable {
-    #   name  = "TEMPID"
-    #   value = jsondecode(data.aws_secretsmanager_secret_version.account_id.secret_string)["TEMPID"]
-    # }
-    #     environment_variable {
-    #   name  = "AWS_ACCOUNT_ID"
-    #   value = jsondecode(data.aws_secretsmanager_secret_version.account_id.secret_string)["AWS_ACCOUNT_ID"]
-    # }
-    #     environment_variable {
-    #   name  = "AWS_ACCOUNT_ID"
-    #   value = jsondecode(data.aws_secretsmanager_secret_version.account_id.secret_string)["AWS_ACCOUNT_ID"]
-    # }
-    # - sed -i 's/<TEMPID>/'$TEMPID'/g' taskdef.json
-    # - sed -i 's/<USERID>/'$USERID'/g' taskdef.json
-    # - sed -i 's/<PUBKEY>/'$PUBKEY'/g' taskdef.json
+        environment_variable {
+      name  = "NEXT_PUBLIC_publickey"
+      value = jsondecode(nonsensitive(data.aws_secretsmanager_secret_version.emailjs_key.secret_string))["NEXT_PUBLIC_publickey"]
+    }
+    environment_variable {
+      name  = "EMAIL_TEMPLATE"
+      value = jsondecode(nonsensitive(data.aws_secretsmanager_secret_version.emailjs_key.secret_string))["NEXT_PUBLIC_templateid"]
+    }
+    environment_variable {
+      name  = "NEXT_PUBLIC_userid"
+      value = jsondecode(nonsensitive(data.aws_secretsmanager_secret_version.emailjs_key.secret_string))["NEXT_PUBLIC_userid"]
+    }
 
 
   }
