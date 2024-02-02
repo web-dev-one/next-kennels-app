@@ -13,20 +13,6 @@
             "protocol": "TCP",
             "containerPort": <SERVICE_PORT>
           }
-        ],
-        "environment": [
-          {
-            "name": "NEXT_PUBLIC_publickey",
-            "value": "${data.aws_secretsmanager_secret.emailjs_pub.arn}"
-          },
-          {
-            "name": "NEXT_PUBLIC_userid",
-            "value": "${data.aws_secretsmanager_secret.emailjs_user.arn}"
-          },
-          {
-            "name": "NEXT_PUBLIC_templateid",
-            "value": "${data.aws_secretsmanager_secret.emailjs_pub.arn}"
-          }
         ]
       }
     ],

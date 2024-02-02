@@ -34,6 +34,9 @@ phases:
     - sed -i 's/<PUBSUBNET>/'$PUBSUBNET'/g' appspec.yml
     - sed -i 's/<PUBSUBNET1>/'$PUBSUBNET1'/g' appspec.yml
     - sed -i 's/<PUBSUBNET2>/'$PUBSUBNET2'/g' appspec.yml
+    - sed -i 's/<TEMPID>/'$TEMPID'/g' taskdef.json
+    - sed -i 's/<USERID>/'$USERID'/g' taskdef.json
+    - sed -i 's/<PUBKEY>/'$PUBKEY'/g' taskdef.json
 artifacts:
   files: 
     - appspec.yml

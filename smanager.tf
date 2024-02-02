@@ -30,26 +30,30 @@ data "aws_secretsmanager_secret" "codestar_arn" {
   arn = nonsensitive("arn:aws:secretsmanager:us-east-1:${jsondecode(data.aws_secretsmanager_secret_version.account_id.secret_string)["AWS_ACCOUNT_ID"]}:secret:code-star-creds")
 }
 
-data "aws_secretsmanager_secret" "emailjs" {
-  name = "EMAILJS"
-}
+# data "aws_secretsmanager_secret" "emailjs" {
+#   name = "EMAILJS"
+# }
 
-data "aws_secretsmanager_secret_version" "emailjs_id" {
-  secret_id = data.aws_secretsmanager_secret.emailjs.id
-}
+# data "aws_secretsmanager_secret_version" "emailjs_id" {
+#   secret_id = data.aws_secretsmanager_secret.emailjs.id
+# }
 
-data "aws_secretsmanager_secret" "emailjs_pub" {
-  arn = sensitive("arn:aws:secretsmanager:us-east-1:${jsondecode(data.aws_secretsmanager_secret_version.emailjs_id.secret_string)["EMAILJS"]}:NEXT_PUBLIC_publickey")
-}
+# data "aws_secretsmanager_secret" "emailjs_pub" {
+#   arn = sensitive("arn:aws:secretsmanager:us-east-1:${jsondecode(data.aws_secretsmanager_secret_version.emailjs_id.secret_string)[NEXT_PUBLIC_publickey]}")
+# }
 
-data "aws_secretsmanager_secret" "emailjs_user" {
-  name = "EMAILJS"
-}
+# data "aws_secretsmanager_secret" "emailjs_user" {
+#   name = "EMAILJS"
+# }
 
-data "aws_secretsmanager_secret_version" "emailjs_user_id" {
-  secret_id = data.aws_secretsmanager_secret.emailjs_user.id
-}
+# data "aws_secretsmanager_secret_version" "emailjs_user_id" {
+#   secret_id = data.aws_secretsmanager_secret.emailjs_user.id
+# }
 
-data "aws_secretsmanager_secret" "emailjs_user" {
-  arn = sensitive("arn:aws:secretsmanager:us-east-1:${jsondecode(data.aws_secretsmanager_secret_version.emailjs_id.secret_string)["EMAILJS"]}:NEXT_PUBLIC_userid")
-}
+# # data "aws_secretsmanager_secret" "emailjs_user_pub" {
+# #   arn = sensitive("arn:aws:secretsmanager:us-east-1:${jsondecode(data.aws_secretsmanager_secret_version.emailjs_id.secret_string)["EMAILJS"]}:NEXT_PUBLIC_userid")
+# # }
+
+# output "secrets" {
+#   value = data.aws_secretsmanager_secret.emailjs_pub
+# }
