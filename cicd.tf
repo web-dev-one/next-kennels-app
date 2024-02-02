@@ -153,7 +153,7 @@ resource "aws_codebuild_project" "codebuild" {
       value = aws_subnet.pub[2].id
     }
         environment_variable {
-      name  = "EMAIL_KEY"
+      name  = "NEXT_PUBLIC_publickey"
       value = jsondecode(nonsensitive(data.aws_secretsmanager_secret_version.emailjs_key.secret_string))["NEXT_PUBLIC_publickey"]
     }
     environment_variable {
@@ -161,7 +161,7 @@ resource "aws_codebuild_project" "codebuild" {
       value = jsondecode(nonsensitive(data.aws_secretsmanager_secret_version.emailjs_key.secret_string))["NEXT_PUBLIC_templateid"]
     }
     environment_variable {
-      name  = "EMAIL_USER"
+      name  = "NEXT_PUBLIC_userid"
       value = jsondecode(nonsensitive(data.aws_secretsmanager_secret_version.emailjs_key.secret_string))["NEXT_PUBLIC_userid"]
     }
 
