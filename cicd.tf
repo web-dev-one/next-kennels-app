@@ -157,7 +157,7 @@ resource "aws_codebuild_project" "codebuild" {
       value = jsondecode(nonsensitive(data.aws_secretsmanager_secret_version.emailjs_key.secret_string))["NEXT_PUBLIC_publickey"]
     }
     environment_variable {
-      name  = "EMAIL_TEMPLATE"
+      name  = "NEXT_PUBLIC_templateid"
       value = jsondecode(nonsensitive(data.aws_secretsmanager_secret_version.emailjs_key.secret_string))["NEXT_PUBLIC_templateid"]
     }
     environment_variable {
