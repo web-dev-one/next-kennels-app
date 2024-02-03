@@ -32,6 +32,9 @@ export default function ContactForm() {
         e.target,
         // form,
         process.env.NEXT_PUBLIC_userid,
+         {
+          'Content-Type': 'application/json',
+      },
       )
       .then(
         (result) => {
