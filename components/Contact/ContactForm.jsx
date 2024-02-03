@@ -19,8 +19,6 @@ export default function ContactForm() {
     from_name: "Pet-Safe-Kennels",
   });
   function sendEmail(event) {
-    console.log(event);
-    console.log(process.env.NEXT_PUBLIC_publickey)
     event.preventDefault()
     let e = event;
    
