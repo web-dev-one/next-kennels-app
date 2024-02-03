@@ -25,6 +25,7 @@ export default function ContactForm() {
    emailjs
       .sendForm(
         // "default_service",
+        console.log("Next_pubKey", process.env.NEXT_PUBLIC_publickey),
         process.env.NEXT_PUBLIC_publickey,
         process.env.NEXT_PUBLIC_templateid,
         e.target,
