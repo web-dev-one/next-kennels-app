@@ -55,8 +55,8 @@ module.exports = {
       domains: ['petsafekennels.com']
     },
     env: {
-      NEXT_PUBLIC_publickey: "b-6MnmRRRXXQ7A6u_",
-      NEXT_PUBLIC_userid: "service_0g854z1",
-      NEXT_PUBLIC_templateid: "template_gnisov4"
+      NEXT_PUBLIC_publickey: b-6MnmRRRXXQ7A6u_,
+      NEXT_PUBLIC_userid: service_0g854z1,
+      NEXT_PUBLIC_templateid: template_gnisov4
     }
   }
