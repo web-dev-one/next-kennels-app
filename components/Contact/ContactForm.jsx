@@ -26,12 +26,12 @@ export default function ContactForm() {
    
    emailjs
       .sendForm(
-        "default_service",
-        process.env.NEXT_PUBLIC_publickey,
+        // "default_service",
+        process.env.NEXT_PUBLIC_userid,
         process.env.NEXT_PUBLIC_templateid,
         e.target,
         // form,
-        process.env.NEXT_PUBLIC_userid,
+        process.env.NEXT_PUBLIC_publickey,
          {
           'Content-Type': 'application/json',
       },
