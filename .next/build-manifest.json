@@ -1,16 +1,97 @@
 {
   "polyfillFiles": [
-    "static/chunks/polyfills.js"
+    "static/chunks/polyfills-c67a75d1b6f99dc8.js"
   ],
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/development/_buildManifest.js",
-    "static/development/_ssgManifest.js"
+    "static/ojHESFSqQiqephiwDB7ap/_buildManifest.js",
+    "static/ojHESFSqQiqephiwDB7ap/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
-    "/_app": []
+    "/": [
+      "static/chunks/webpack-59c5c889f52620d6.js",
+      "static/chunks/framework-5429a50ba5373c56.js",
+      "static/chunks/main-72cd581c1e9bd837.js",
+      "static/chunks/682-7cbacd358a9af1cf.js",
+      "static/chunks/190-15be09daab7bc1bd.js",
+      "static/css/ae4ed9c503fd1e33.css",
+      "static/chunks/pages/index-2166ec1a5066c193.js"
+    ],
+    "/_app": [
+      "static/chunks/webpack-59c5c889f52620d6.js",
+      "static/chunks/framework-5429a50ba5373c56.js",
+      "static/chunks/main-72cd581c1e9bd837.js",
+      "static/css/85cc096060a683fc.css",
+      "static/chunks/pages/_app-36acd36938e98805.js"
+    ],
+    "/_error": [
+      "static/chunks/webpack-59c5c889f52620d6.js",
+      "static/chunks/framework-5429a50ba5373c56.js",
+      "static/chunks/main-72cd581c1e9bd837.js",
+      "static/chunks/pages/_error-b6491f42fb2263bb.js"
+    ],
+    "/aviary": [
+      "static/chunks/webpack-59c5c889f52620d6.js",
+      "static/chunks/framework-5429a50ba5373c56.js",
+      "static/chunks/main-72cd581c1e9bd837.js",
+      "static/chunks/682-7cbacd358a9af1cf.js",
+      "static/chunks/190-15be09daab7bc1bd.js",
+      "static/chunks/782-cb5c3405fdb2abb1.js",
+      "static/css/ae4ed9c503fd1e33.css",
+      "static/chunks/pages/aviary-5fc40b97bc8b839b.js"
+    ],
+    "/boxkennel": [
+      "static/chunks/webpack-59c5c889f52620d6.js",
+      "static/chunks/framework-5429a50ba5373c56.js",
+      "static/chunks/main-72cd581c1e9bd837.js",
+      "static/chunks/682-7cbacd358a9af1cf.js",
+      "static/chunks/190-15be09daab7bc1bd.js",
+      "static/chunks/782-cb5c3405fdb2abb1.js",
+      "static/css/ae4ed9c503fd1e33.css",
+      "static/chunks/pages/boxkennel-bee1061be835eb2c.js"
+    ],
+    "/combo_kennel": [
+      "static/chunks/webpack-59c5c889f52620d6.js",
+      "static/chunks/framework-5429a50ba5373c56.js",
+      "static/chunks/main-72cd581c1e9bd837.js",
+      "static/chunks/682-7cbacd358a9af1cf.js",
+      "static/chunks/190-15be09daab7bc1bd.js",
+      "static/chunks/782-cb5c3405fdb2abb1.js",
+      "static/css/ae4ed9c503fd1e33.css",
+      "static/chunks/pages/combo_kennel-713e5ba967459083.js"
+    ],
+    "/dogpark": [
+      "static/chunks/webpack-59c5c889f52620d6.js",
+      "static/chunks/framework-5429a50ba5373c56.js",
+      "static/chunks/main-72cd581c1e9bd837.js",
+      "static/chunks/682-7cbacd358a9af1cf.js",
+      "static/chunks/190-15be09daab7bc1bd.js",
+      "static/chunks/782-cb5c3405fdb2abb1.js",
+      "static/css/ae4ed9c503fd1e33.css",
+      "static/chunks/pages/dogpark-fdbec49b3bd6c73a.js"
+    ],
+    "/dogrun": [
+      "static/chunks/webpack-59c5c889f52620d6.js",
+      "static/chunks/framework-5429a50ba5373c56.js",
+      "static/chunks/main-72cd581c1e9bd837.js",
+      "static/chunks/682-7cbacd358a9af1cf.js",
+      "static/chunks/190-15be09daab7bc1bd.js",
+      "static/chunks/782-cb5c3405fdb2abb1.js",
+      "static/css/ae4ed9c503fd1e33.css",
+      "static/chunks/pages/dogrun-e42abda5593b0576.js"
+    ],
+    "/partial-cover-top": [
+      "static/chunks/webpack-59c5c889f52620d6.js",
+      "static/chunks/framework-5429a50ba5373c56.js",
+      "static/chunks/main-72cd581c1e9bd837.js",
+      "static/chunks/682-7cbacd358a9af1cf.js",
+      "static/chunks/190-15be09daab7bc1bd.js",
+      "static/chunks/782-cb5c3405fdb2abb1.js",
+      "static/css/ae4ed9c503fd1e33.css",
+      "static/chunks/pages/partial-cover-top-d493c7a4488209da.js"
+    ]
   },
   "ampFirstPages": []
 }

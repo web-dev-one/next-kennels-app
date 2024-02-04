@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://petsafekennels.com
+
+# Sitemaps
+Sitemap: https://petsafekennels.com/sitemap.xml
