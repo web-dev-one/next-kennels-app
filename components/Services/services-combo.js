@@ -8,7 +8,7 @@ const servicesCombo = [
       {
         id: 10,
         service: "Combo Kennel",
-        price: "$2800 & Up",
+        price: "$$",
         info: "Box Opens into Dog Run.",
         des: `Perfect blend of comfort, security, and freedom. PetSafeKennels presents the ultimate solution – the Dog Haven, a dog kennel that combines a box kennel seamlessly connected to your home with a doggy door leading to a spacious outdoor run area.
 
