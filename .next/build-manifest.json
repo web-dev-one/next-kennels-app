@@ -27,15 +27,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/boxkennel": [
+    "/links": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/boxkennel.js"
-    ],
-    "/dogpark": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/dogpark.js"
+      "static/chunks/pages/links.js"
     ]
   },
   "ampFirstPages": []
