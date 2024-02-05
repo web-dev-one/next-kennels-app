@@ -27,11 +27,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/aviary": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/aviary.js"
-    ],
     "/boxkennel": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -41,11 +36,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/dogpark.js"
-    ],
-    "/partial-cover-top": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/partial-cover-top.js"
     ]
   },
   "ampFirstPages": []
