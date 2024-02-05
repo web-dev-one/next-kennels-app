@@ -2,11 +2,11 @@ import Link from "next/link";
 
 
 export default function Links({links}){
-        console.log(links)
+        
     const makeSection=(links)=>( 
-        links.map((s,i)=>(<div key={i} className="text-left flex-col justify-left items-center mt-2 bg-purple-400 h-24 my-3 w-32">
+        links.map((s,i)=>(<div key={i} className="text-left flex-col justify-left items-center h-10 m-1 bg-purple-400 w-32">
                         <Link
-                          className="text-xl h-24 my-3 mx-2"
+                          className="text-xl my-0 py-0 mx-2"
                           href={s.href}
                           passHref={true}
                           scroll={false}
@@ -17,7 +17,7 @@ export default function Links({links}){
         ))
 
     return(<>
-            <div className="grid grid-col-1 justify-center bg-indigo-400 mt-5 w-32">
+            <div className="grid grid-col-1 justify-center bg-indigo-400 mt-4 mb-8 w-32">
                 {makeSection(links)}
             </div>
           </>)
