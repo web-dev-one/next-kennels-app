@@ -11,7 +11,8 @@ const links = [{title: "Pet-Safe-Kennels Info", href: "https://www.pet-safe-kenn
 {title: "Coyote Proof Kennels", href: "https://coyote-proof-kennels.com/Arizona/Scottsdale-Pet-Kennel-Installers.htm"},
 {title: "Coyote FAQ", href: "https://www.paradisevalleyaz.gov/105/Coyotes"},
 {title: "Vet Loan Bill", href: "https://www.azhumane.org/news/sb-1271-passes-senate/"}, 
-{title: "Pet Insurance", href: "https://www.healthypawspetinsurance.com/locations/az/arizona-pet-insurance"}]
+{title: "Pet Insurance", href: "https://www.healthypawspetinsurance.com/locations/az/arizona-pet-insurance"}, 
+{title: "Dog Boarding", href: "https://www.dogtopia.com/phoenix-arcadia/"}]
 
 export default function Waxing() {
   return (
