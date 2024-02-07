@@ -43,7 +43,7 @@ export default function ContactForm() {
       );
   }
   const handleSubmit = (code) => {
-    debugger
+    
    console.log("code",code)
     setShowResponse(() => ({ display: true, code: code }));
     reset();
