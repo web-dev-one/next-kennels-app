@@ -29,6 +29,7 @@ export default function City({city}){
                  id={currentCity.id} 
                  name={currentCity.name} 
                  img={currentCity.img}
+                 src={currentCity.img}
                  des={currentCity.des}
                  detail={currentCity.detail}
                  />

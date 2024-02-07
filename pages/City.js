@@ -16,7 +16,7 @@ export default function MyCity({id, name, img, des, detail}){
              quality={75}
              loading={"eager"}
             />
-            <h4 className="bg-white fs-1 text-3xl text-sky-900 mx-auto">{detail}</h4>
+            <h4 className="bg-white fs-1 text-3xl text-sky-900 mx-auto h-100 mb-14 pb-3">{detail}</h4>
             </div>
           </>)
 }
