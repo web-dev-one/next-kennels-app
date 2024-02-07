@@ -5,6 +5,7 @@ import WelcomeCarousel from "../components/Carousel";
 import { useRouter } from "next/router";
 import cities from '../cities.json'
 import MyCity from './City.js'
+import ScrollButton from "../components/ScrollButton";
 
 
 
@@ -33,6 +34,7 @@ export default function City({city}){
                  />
               </div>
              </div>
+             <ScrollButton />
             </Layout>
           </>)
 }
