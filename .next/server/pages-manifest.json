@@ -1,11 +1,7 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-<<<<<<< HEAD
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/links": "pages/links.js"
-=======
-  "/[city]": "pages/[city].js"
->>>>>>> dev
+  "/[city]": "pages/[city].js",
+  "/": "pages/index.js"
 }
