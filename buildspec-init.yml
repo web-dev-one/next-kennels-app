@@ -13,6 +13,8 @@ phases:
     - export PROGRESS_NO_TRUNC=1   
   build:
     commands:
+    - echo testing nextjs
+    - npm run test
     - echo building docker image...
     - docker image build -t $IMAGE_TAG .
     - docker tag $IMAGE_TAG $ECR_REPOSITORY_URI:$IMAGE_TAG

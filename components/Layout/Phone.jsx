@@ -11,7 +11,7 @@ export default function Phone() {
         <source type="image/png" srcSet="phone.png" />
         <img src="/phone.png" alt="Phone" className="w-6 h-6 mr-2" />
       </picture>
-      <a href={`tel:${number}`} >
+      <a data-testid="phone" href={`tel:${number}`} >
         <span className="font-bold">Call us</span> {number}
       </a>
     </div>

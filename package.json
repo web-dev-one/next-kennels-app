@@ -8,7 +8,8 @@
     "start": "next start -p 3000",
     "generate": "next build && next export",
     "export": "next build && next export",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
