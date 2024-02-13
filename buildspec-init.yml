@@ -14,7 +14,7 @@ phases:
   build:
     commands:
     - echo npm -v
-    - npm -v
+    - nvm -v
     - echo npm run install
     - npm install
     - echo testing nextjs
