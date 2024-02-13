@@ -16,7 +16,9 @@ export default function City({city}){
     useEffect(()=>{
         let cityArray = cities
         let currentCity = cityArray.filter( c =>{ 
-          if (c.name === route.query.city){ return c}
+          if (c.name === route.query.city){ 
+            console.log("debug", route.query.city)
+            return c}
           else { return {id: 0, name:"Glendale", img:"/glendale.jpg", des:"Glendale", detail:"Glendale"} }
         })
         setCities(...currentCity)
