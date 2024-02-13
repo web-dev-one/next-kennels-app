@@ -9,7 +9,7 @@
     "generate": "next build && next export",
     "export": "next build && next export",
     "postbuild": "next-sitemap",
-    "test:watch": "jest --watch"
+    "test": "jest"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
