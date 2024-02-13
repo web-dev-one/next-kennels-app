@@ -13,6 +13,7 @@ phases:
     - export PROGRESS_NO_TRUNC=1   
   build:
     commands:
+    - npm install
     - echo testing nextjs
     - npm run test
     - echo building docker image...
