@@ -3151,6 +3151,11 @@ next-image-export-optimizer@^1.11.0:
     sharp "^0.32.6"
     typescript "^5.2.2"
 
+next-router-mock@^0.9.12:
+  version "0.9.12"
+  resolved "https://registry.npmjs.org/next-router-mock/-/next-router-mock-0.9.12.tgz"
+  integrity sha512-PzKn70RSqO50GHyYyhd4WJb9I526Abfq2VDP+YPV8yqlaR38OKtQAcWr3njR75UG+Ik6HououZHm7ucxl6LSnA==
+
 next-sitemap@^4.2.3:
   version "4.2.3"
   resolved "https://registry.npmjs.org/next-sitemap/-/next-sitemap-4.2.3.tgz"
@@ -3161,7 +3166,7 @@ next-sitemap@^4.2.3:
     fast-glob "^3.2.12"
     minimist "^1.2.8"
 
-next@*, next@^14.0.4, next@>=13.1.0:
+next@*, next@^14.0.4, next@>=10.0.0, next@>=13.1.0:
   version "14.0.4"
   resolved "https://registry.npmjs.org/next/-/next-14.0.4.tgz"
   integrity sha512-qbwypnM7327SadwFtxXnQdGiKpkuhaRLE2uq62/nRul9cj9KhQ5LhHmlziTNqUidZotw/Q1I9OjirBROdUJNgA==
@@ -3833,7 +3838,7 @@ react-responsive-carousel@^3.2.10:
     prop-types "^15.5.8"
     react-easy-swipe "^0.0.21"
 
-react@^18.0.0, react@^18.0.0-0, react@^18.0.2, react@^18.2.0, "react@>= 16.8.0 || 17.x.x || ^18.0.0-0":
+react@^18.0.0, react@^18.0.0-0, react@^18.0.2, react@^18.2.0, "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=17.0.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
