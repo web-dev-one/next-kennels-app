@@ -6,8 +6,8 @@ describe('City', () => {
   it('Renders a phone number on the City heading', () => {
     render(<City  />)
  
-    const number = screen.getByTestId('phone')
+    const city = screen.getByTestId('city')
  
-    expect(number).toBeInTheDocument()
+    expect(city).toBeInTheDocument()
   })
 })
