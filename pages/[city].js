@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import cities from '../cities.json'
 import MyCity from './City.js'
 import ScrollButton from "../components/ScrollButton";
+import Head from 'next/head.js';
 
 
 
@@ -15,17 +16,19 @@ export default function City({city}){
 
     useEffect(()=>{
         let cityArray = cities
-        let currentCity = cityArray.filter( c =>{ 
-          if (c.name === route.query.city){ 
-            return c}
-          else { return {id: 0, name:"Glendale", img:"/glendale.jpg", des:"Glendale", detail:"Glendale"} }
-        })
+        let currentCity = cityArray.filter( c => c.name === route.query.city)
         setCities(...currentCity)
         console.log("current city", currentCity)
     },[currentCity, setCities])
 
     console.log("cc",currentCity)
     return(<>
+            <Head>
+              <title>Pet Safe {currentCity.name} Kennels</title>
+              <meta property="og:title" content={`Pet Safe ${currentCity.name} Kennels`} key="title" />
+              <meta charSet="utf-8" />
+              <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
             <Layout>
             <WelcomeCarousel />
              <div className="content">

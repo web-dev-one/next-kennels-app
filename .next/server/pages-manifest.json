@@ -1,8 +1,7 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/boxkennel": "pages/boxkennel.js",
-  "/[city]": "pages/[city].js",
-  "/partial-cover-top": "pages/partial-cover-top.js"
+  "/_error": "pages/_error.js",
+  "/": "pages/index.js",
+  "/[city]": "pages/[city].js"
 }
