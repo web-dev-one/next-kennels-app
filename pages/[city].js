@@ -17,7 +17,7 @@ export default function City({city}){
         let cityArray = cities
         let currentCity = cityArray.filter( c =>{ 
           if (c.name === route.query.city){ 
-            console.log("debug", route.query.city)
+            console.log("current city", route.query.city, "CITY::", c)
             return c}
           else { return {id: 0, name:"Glendale", img:"/glendale.jpg", des:"Glendale", detail:"Glendale"} }
         })
