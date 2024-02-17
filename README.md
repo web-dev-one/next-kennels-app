@@ -10,11 +10,10 @@
 
 - Built with[ **Next.js**](https://nextjs.org/) (Server-side rendering, image optimization)
 - Responsive styling with [**Tailwind CSS**](https://tailwindcss.com/)
-- Design by [**Daria Khudiakova**](https://daria-in-design.com/tete-a-tete)
 - Google maps and Google reviews integration
 - Image optimization via next/image & Cloudinary
 - [EmailJS](https://www.emailjs.com/) for contact form management
-- Hosted on [Vercel](https://vercel.com/)
+
 
 
 ### Try it locally
@@ -40,13 +39,6 @@ NEXT_PUBLIC_userid="EmailJS User ID"
 
 3. Then
 `npm start`
-
-Salon services data is in `components/Services/services-*.js`
-
-Team member data is in `components/Team/members.js`
-
-*This project is serverless so I am using a self hosted CORS reverse proxy for cross-origin API requests* 
-[see more](https://github.com/Rob--W/cors-anywhere)
 
 
 ### Tools

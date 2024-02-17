@@ -18,10 +18,9 @@ export default function City({city}){
         let cityArray = cities
         let currentCity = cityArray.filter( c => c.name === route.query.city)
         setCities(...currentCity)
-        console.log("current city", currentCity)
+       
     },[currentCity, setCities])
 
-    console.log("cc",currentCity)
     return(<>
             <Head>
               <title>Pet Safe {currentCity.name} Kennels</title>
