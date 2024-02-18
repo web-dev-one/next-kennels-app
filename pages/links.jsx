@@ -17,7 +17,8 @@ const links =
 {title: "Phoenix Dogs", href: "https://phxdogs.com/"},
 {title: "Goodyear Dog Care", href: "https://deercreekah.net/services/daycare/?cp=9289006312"},
 {title: "Tempe Doggie District", href: "https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiZ3q-Yx5SEAxX-NtQBHXd0CAUYABAAGgJvYQ&ase=2&gclid=CjwKCAiAq4KuBhA6EiwArMAw1O68zr8oIQDAtskpYifkNbnAG_e0Vnr2n82_2DZ1YbnTsKxejrsxOBoCGPkQAvD_BwE&ohost=www.google.com&cid=CAESVuD2d16ib1xlRlMnWtYJfr9LviZw9sY1Y9JXBCcCyRrOSDHAe3Qc5VFbiV7I3FGsn9rHRbFz8d2zeZcua0OulH1-By_LXfFisO2ZcbYo_6jmr7nWXuuc&sig=AOD64_3qy0nmqegR-VnV7d7ss_PyHXERyg&q&nis=4&adurl&ved=2ahUKEwjJq6iYx5SEAxU3OUQIHYClAdQQ0Qx6BAgPEAM"},
-{title: "Scottsdale Paw Commons", href: "https://www.pawcommons.com/scottsdale-az/dog-boarding/?mm_campaign=scottsdale-boarding&gad_source=1&gclid=CjwKCAiAq4KuBhA6EiwArMAw1GwtoTZqqi4YIdiJC-T8nm7tiqoFnJg1D7gXFhjZbamr2ATRa9V72hoC6dUQAvD_BwE"}]
+{title: "Scottsdale Paw Commons", href: "https://www.pawcommons.com/scottsdale-az/dog-boarding/?mm_campaign=scottsdale-boarding&gad_source=1&gclid=CjwKCAiAq4KuBhA6EiwArMAw1GwtoTZqqi4YIdiJC-T8nm7tiqoFnJg1D7gXFhjZbamr2ATRa9V72hoC6dUQAvD_BwE"},
+{title: "Mountain Lions in Phoenix", href: "https://www.12news.com/article/life/animals/phoenix-mountains-preserve-big-cat-jaguar-mountain-lion-bobcat-november-2023/75-515bb259-94a3-4091-8ca0-1ba3757c4cbe"}]
 
 export default function Waxing() {
   return (

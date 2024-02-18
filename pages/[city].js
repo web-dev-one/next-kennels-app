@@ -9,7 +9,6 @@ import ScrollButton from "../components/ScrollButton";
 import Head from 'next/head.js';
 
 
-
 export default function City({city}){
   const route = useRouter();
     let [currentCity, setCities] = useState([]);
@@ -48,7 +47,6 @@ export default function City({city}){
 }
 
 export async function getStaticPaths(){
-    
   return {
     paths: cities.map(city => {
       return {

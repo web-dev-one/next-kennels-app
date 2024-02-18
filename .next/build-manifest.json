@@ -17,6 +17,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/index.js"
     ],
+    "/[city]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/[city].js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -26,6 +31,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
+    ],
+    "/links": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/links.js"
     ]
   },
   "ampFirstPages": []
