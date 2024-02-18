@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 
-export default function MyCity({id, name, img, des, detail}){
+export default function MyCity({id, name, img="./happy-dog.jpg", des, detail}){
    
     return(<>
             <div key={id} className="flex flex-col justify-center w-100 h-100 mx-auto mt-4 px-4">
