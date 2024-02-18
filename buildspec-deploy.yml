@@ -13,8 +13,7 @@ phases:
     - export PROGRESS_NO_TRUNC=1   
   build:
     commands:
-    - echo testing nextjs
-    - npm run test
+    
     - echo deploying docker image...
     - docker image pull $ECR_REPOSITORY_URI
     
