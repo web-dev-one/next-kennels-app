@@ -16,7 +16,7 @@ phases:
     commands:
     - echo npm run install
     - npm install -y
-    
+  
     - echo building docker image...
     - docker image build -t $IMAGE_TAG .
     - docker tag $IMAGE_TAG $ECR_REPOSITORY_URI:$IMAGE_TAG

@@ -13,7 +13,7 @@ phases:
     - export PROGRESS_NO_TRUNC=1   
   build:
     commands:
-    
+
     - echo deploying docker image...
     - docker image pull $ECR_REPOSITORY_URI
     
