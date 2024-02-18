@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 
-export default function MyCity({id=1, name="Near You", img="/happy-dog.jpg", des="Installing the safest dog kennesl in America in Arizona", detail="Guaranteed to protect your pets. "}){
+export default function MyCity({id=1, name="Near You", img="/happy-dog.jpg", des="Installing the safest dog kennesl in America in Arizona", detail="Guaranteed to protect your pets."}){
    
     return(<>
             <div key={id} className="flex flex-col justify-center w-100 h-100 mx-auto mt-4 px-4">
