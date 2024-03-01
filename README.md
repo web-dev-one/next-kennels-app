@@ -11,12 +11,12 @@
 - Built with[ **Next.js**](https://nextjs.org/) (Server-side rendering, image optimization)
 - Responsive styling with [**Tailwind CSS**](https://tailwindcss.com/)
 - Google maps and Google reviews integration
-- Image optimization via next/image & Cloudinary
 - [EmailJS](https://www.emailjs.com/) for contact form management
 
 
 
-### Try it locally
+[!warning]
+### Developers Corner
 
 1. Clone the repo
 
