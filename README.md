@@ -15,9 +15,9 @@
 
 
 > [!note]
->## From Commit to Test to Deploy
 >### Software Developers Corner
-> A Mentor's Passion Project coded into reality
+>#### From Commit to Test to Deploy
+>>> A Mentor's Passion Project coded into reality
 Created with DevOps Principles
 >> Microservices
 >>> Github
