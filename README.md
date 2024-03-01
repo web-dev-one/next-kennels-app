@@ -17,7 +17,7 @@
 
 > [!note]
 >### Software Developers Corner
-> A Mentor's Pasion Project codeded into reality
+> A Mentor's Pasion Project coded into reality
 Created with DevOps Principles
 >> Microservices
 >>> Github
