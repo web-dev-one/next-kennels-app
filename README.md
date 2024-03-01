@@ -15,10 +15,16 @@
 
 
 
-> [!info]
+> [!note]
 >### Developers Corner
-> Created with DevOps Principals
-> AWS CodePipeline 
+> Created with DevOps Principles
+> Microservices
+>> AWS CodePipeline
+>> Github
+>> AWS CodeBuild
+>> AWS CodeDeploy
+>> AWS ECR
+>> ECS Fargate
 >> from Commit to Test to Deploy
 >>> A Mentor's Pasion Project codeded into reality
 
