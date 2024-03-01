@@ -26,6 +26,11 @@ Created with DevOps Principles
 >>> AWS CodeDeploy
 >>> AWS ECR
 >>> AWS ECS Fargate
+>>> AWS CloudFront
+>>> AWS Route53
+>>> AWS Certificate Manager
+>>> AWS Secretes Manager
+
 From Commit to Test to Deploy
 
 
