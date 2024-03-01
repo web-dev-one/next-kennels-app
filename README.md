@@ -16,17 +16,18 @@
 
 
 > [!note]
->### Developers Corner
+>### Software Developers Corner
+> A Mentor's Pasion Project codeded into reality
 > Created with DevOps Principles
-> Microservices
->> AWS CodePipeline
->> Github
->> AWS CodeBuild
->> AWS CodeDeploy
->> AWS ECR
->> ECS Fargate
+>> Microservices
+>>> Github
+>>> AWS CodePipeline
+>>> AWS CodeBuild
+>>> AWS CodeDeploy
+>>> AWS ECR
+>>> ECS Fargate
 >> from Commit to Test to Deploy
->>> A Mentor's Pasion Project codeded into reality
+
 
 
 2. In root folder create a `.env` file and add your API keys
