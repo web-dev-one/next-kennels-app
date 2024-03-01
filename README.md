@@ -30,7 +30,7 @@ Created with DevOps Principles
 >>> AWS Certificate Manager
 >>> AWS Secretes Manager
 >>>> next-sitemap dynamically generates xml sitemap for SEO improvement. 
-From Commit to Test to Deploy
+## From Commit to Test to Deploy
 
 
 1. Cone Repo
