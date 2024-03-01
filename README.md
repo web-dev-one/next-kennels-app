@@ -52,6 +52,9 @@ NEXT_PUBLIC_userid="EmailJS User ID"
 
 
 ### Tools
+- [Terraform](https://registry.terraform.io/)
+- [Docker](https://www.docker.com/)
+- [AWS](https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiEy-ORktKEAxXR1MIEHYG6DvYYABAAGgJwdg&ase=2&gclid=Cj0KCQiA84CvBhCaARIsAMkAvkIx99Hayf8NAmq8KJmf4ewBNN-GGpqN_AIyfSgTWZTWgbqRYleIjBgaApbZEALw_wcB&ohost=www.google.com&cid=CAESVuD2idK2XJjOzIKnPEOoVyZkqy63XgnvA5cDmDOuLIJ6zqwRJa51ghWjMed9X8Hf7o36SbbuwCcswdMlRM46KtMKIh9LOBhS9EbqMtuE4NPQyHkx7s3z&sig=AOD64_3N_S80cOMGtoHC2nfa87KuOZHYxQ&q&nis=4&adurl&ved=2ahUKEwjtvd2RktKEAxXEJUQIHWRiDHMQ0Qx6BAgFEAE)
 - [ Next.js](https://nextjs.org/) 
 - React
 - [Tailwind CSS](https://tailwindcss.com/)
