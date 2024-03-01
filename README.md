@@ -15,10 +15,13 @@
 
 
 
-> [!warning]
+> [!info]
 >### Developers Corner
+> Created with DevOps Principals
+> AWS CodePipeline 
+>> from Commit to Test to Deploy
+>>> A Mentor's Pasion Project codeded into reality
 
-1. Clone the repo
 
 2. In root folder create a `.env` file and add your API keys
 
