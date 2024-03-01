@@ -1,4 +1,4 @@
-# Pet-Safe-Kennels
+# PetSafeKennels.com
 
 **Website for a welding company.**
 
@@ -29,7 +29,7 @@ Created with DevOps Principles
 From Commit to Test to Deploy
 
 
-
+1. Cone Repo
 2. In root folder create a `.env` file and add your API keys
 
 In order for *Google map and  reviews* to work you need the following
@@ -57,9 +57,6 @@ NEXT_PUBLIC_userid="EmailJS User ID"
 - [Tailwind CSS](https://tailwindcss.com/)
 - [EmailJS](https://www.emailjs.com/) 
 
-
-### Task list
-- [ ] Add online booking
 
 ### License
 MIT License
