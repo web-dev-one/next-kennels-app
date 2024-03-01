@@ -25,8 +25,8 @@ Created with DevOps Principles
 >>> AWS CodeBuild
 >>> AWS CodeDeploy
 >>> AWS ECR
->>> ECS Fargate
->> from Commit to Test to Deploy
+>>> AWS ECS Fargate
+From Commit to Test to Deploy
 
 
 
