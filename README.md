@@ -15,10 +15,12 @@
 
 
 > [!note]
->### Software Developers Corner
->#### From Commit to Test to Deploy
->>> A Mentor's Passion Project coded into reality
-Created with DevOps Principles
+> ### Software Developers Corner
+> #### From Commit to Test to Deploy
+>
+> A Mentor's Passion Project coded into reality
+>
+> Created with DevOps Principles
 >> Microservices
 >>> Github
 >>> AWS CodePipeline
@@ -30,7 +32,8 @@ Created with DevOps Principles
 >>> AWS Route53
 >>> AWS Certificate Manager
 >>> AWS Secretes Manager
->>>> next-sitemap dynamically generates xml sitemap for SEO improvement. 
+>
+> next-sitemap dynamically generates xml sitemap for SEO improvement. 
 
 
 
