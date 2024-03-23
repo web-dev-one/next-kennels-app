@@ -1,26 +1,43 @@
-# Pet-Safe-Kennels
+# PetSafeKennels.com
 
 **Website for a welding company.**
 
-### [Website](https:petsafekennels.com)
+### [Visit website](https://petsafekennels.com)
 
-[![](https://github.com/web-dev-one/webmasterssolutionsllc_admin/tree/main/FrontEnd)](https://petsafekennels.com/ "Visit website")
 
 ### Features
 
 - Built with[ **Next.js**](https://nextjs.org/) (Server-side rendering, image optimization)
 - Responsive styling with [**Tailwind CSS**](https://tailwindcss.com/)
-- Design by [**Daria Khudiakova**](https://daria-in-design.com/tete-a-tete)
 - Google maps and Google reviews integration
-- Image optimization via next/image & Cloudinary
 - [EmailJS](https://www.emailjs.com/) for contact form management
-- Hosted on [Vercel](https://vercel.com/)
 
 
-### Try it locally
 
-1. Clone the repo
+> [!note]
+> ### Software Developers Corner
+> #### From Commit to Test to Deploy
+>
+> A Mentor's Passion Project coded into reality
+>
+> Created with DevOps Principles
+>> Microservices
+>>> Github
+>>> AWS CodePipeline
+>>> AWS CodeBuild
+>>> AWS CodeDeploy
+>>> AWS ECR
+>>> AWS ECS Fargate
+>>> AWS CloudFront
+>>> AWS Route53
+>>> AWS Certificate Manager
+>>> AWS Secretes Manager
+>
+> next-sitemap dynamically generates xml sitemap for SEO improvement. 
 
+
+
+1. Cone Repo
 2. In root folder create a `.env` file and add your API keys
 
 In order for *Google map and  reviews* to work you need the following
@@ -41,23 +58,16 @@ NEXT_PUBLIC_userid="EmailJS User ID"
 3. Then
 `npm start`
 
-Salon services data is in `components/Services/services-*.js`
-
-Team member data is in `components/Team/members.js`
-
-*This project is serverless so I am using a self hosted CORS reverse proxy for cross-origin API requests* 
-[see more](https://github.com/Rob--W/cors-anywhere)
-
 
 ### Tools
+- [Terraform](https://registry.terraform.io/)
+- [Docker](https://www.docker.com/)
+- [AWS](https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiEy-ORktKEAxXR1MIEHYG6DvYYABAAGgJwdg&ase=2&gclid=Cj0KCQiA84CvBhCaARIsAMkAvkIx99Hayf8NAmq8KJmf4ewBNN-GGpqN_AIyfSgTWZTWgbqRYleIjBgaApbZEALw_wcB&ohost=www.google.com&cid=CAESVuD2idK2XJjOzIKnPEOoVyZkqy63XgnvA5cDmDOuLIJ6zqwRJa51ghWjMed9X8Hf7o36SbbuwCcswdMlRM46KtMKIh9LOBhS9EbqMtuE4NPQyHkx7s3z&sig=AOD64_3N_S80cOMGtoHC2nfa87KuOZHYxQ&q&nis=4&adurl&ved=2ahUKEwjtvd2RktKEAxXEJUQIHWRiDHMQ0Qx6BAgFEAE)
 - [ Next.js](https://nextjs.org/) 
 - React
 - [Tailwind CSS](https://tailwindcss.com/)
 - [EmailJS](https://www.emailjs.com/) 
 
-
-### Task list
-- [ ] Add online booking
 
 ### License
 MIT License

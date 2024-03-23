@@ -32,15 +32,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/boxkennel": [
+    "/coyote-services": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/boxkennel.js"
-    ],
-    "/dogrun": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/dogrun.js"
+      "static/chunks/pages/coyote-services.js"
     ]
   },
   "ampFirstPages": []

@@ -17,15 +17,15 @@
         "environment": [
           {
             "name": "NEXT_PUBLIC_publickey",
-            "value": "${data.aws_secretsmanager_secret.emailjs_pub.arn}"
+            "value": "<NEXT_PUBLIC_publickey>"
           },
           {
             "name": "NEXT_PUBLIC_userid",
-            "value": "${data.aws_secretsmanager_secret.emailjs_user.arn}"
+            "value": "<NEXT_PUBLIC_userid>"
           },
           {
             "name": "NEXT_PUBLIC_templateid",
-            "value": "${data.aws_secretsmanager_secret.emailjs_pub.arn}"
+            "value": "<NEXT_PUBLIC_templateid>"
           }
         ]
       }

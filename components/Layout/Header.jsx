@@ -62,7 +62,7 @@ export default function Header(props) {
             id="example-navbar-danger"
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <li className="nav-item font-extrabold text-red-400 mx-1">
+              <li className="nav-item font-extrabold text-red-400 mx-2">
                 <Link
                   passHref={true}
                   scroll={false}
@@ -79,7 +79,7 @@ export default function Header(props) {
                 <hr />
               </li>
 
-              <li className="nav-item font-extrabold text-red-400 mx-1">
+              <li className="nav-item font-extrabold text-red-400 mx-2">
                 <Link
                   passHref={true}
                   scroll={false}
@@ -110,7 +110,7 @@ export default function Header(props) {
                 <hr />
               </li> */}
 
-              <li className="nav-item font-extrabold text-red-400 mx-1">
+              <li className="nav-item font-extrabold text-red-400 mx-2">
                 <Link
                   passHref={true}
                   scroll={false}
@@ -122,8 +122,8 @@ export default function Header(props) {
                     Contact 
                 </Link>
               </li>
-              <li className="nav-item font-bold text-red-400 bookingItem" onClick={() => props.onClick(true)}>
-                  BookConsultation
+              <li className="nav-item font-bold text-red-400 bookingItem mx-2" onClick={() => props.onClick(true)}>
+                  Book Consultation
               </li>
               {/* <li className="nav-item font-extrabold text-red-400 mx-1">
                 <Link

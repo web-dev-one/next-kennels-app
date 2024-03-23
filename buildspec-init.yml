@@ -7,12 +7,17 @@ phases:
       nodejs: 20
   pre_build:
     commands:
+    - pip3 install awscli --upgrade --user
     - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_REPOSITORY_URI
     - export DOCKER_BUILDKIT=1
     - export BUILDKIT_PROGRESS=plain
     - export PROGRESS_NO_TRUNC=1   
   build:
     commands:
+    - echo npm run install
+    - npm install -y
+    # - echo testing nextjs
+    # - npm run test
     - echo building docker image...
     - docker image build -t $IMAGE_TAG .
     - docker tag $IMAGE_TAG $ECR_REPOSITORY_URI:$IMAGE_TAG
@@ -34,6 +39,9 @@ phases:
     - sed -i 's/<PUBSUBNET>/'$PUBSUBNET'/g' appspec.yml
     - sed -i 's/<PUBSUBNET1>/'$PUBSUBNET1'/g' appspec.yml
     - sed -i 's/<PUBSUBNET2>/'$PUBSUBNET2'/g' appspec.yml
+    - sed -i 's/<NEXT_PUBLIC_templateid>/'$NEXT_PUBLIC_templateid'/g' taskdef.json
+    - sed -i 's/<NEXT_PUBLIC_userid>/'$NEXT_PUBLIC_userid'/g' taskdef.json
+    - sed -i 's/<NEXT_PUBLIC_publickey>/'$NEXT_PUBLIC_publickey'/g' taskdef.json
 artifacts:
   files: 
     - appspec.yml

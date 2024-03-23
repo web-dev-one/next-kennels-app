@@ -24,9 +24,15 @@ resource "aws_ecs_task_definition" "app" {
       }
     ],
     "environment": [
-      {"name": "NEXT_PUBLIC_publickey", "value": "${jsondecode(nonsensitive(data.aws_secretsmanager_secret_version.emailjs_key.secret_string))["NEXT_PUBLIC_publickey"]}"},
-       {"name": "EMAIL_TEMPLATE", "value": "${jsondecode(nonsensitive(data.aws_secretsmanager_secret_version.emailjs_key.secret_string))["NEXT_PUBLIC_templateid"]}"},
-        {"name": "NEXT_PUBLIC_userid", "value": "${jsondecode(nonsensitive(data.aws_secretsmanager_secret_version.emailjs_key.secret_string))["NEXT_PUBLIC_userid"]}"
+      {"name": "NEXT_PUBLIC_publickey", 
+      "value": "${jsondecode(data.aws_secretsmanager_secret_version.emailjs_key.secret_string)["NEXT_PUBLIC_publickey"]}"
+      },
+       {"name": "EMAIL_TEMPLATE", 
+       "value": "${jsondecode(data.aws_secretsmanager_secret_version.emailjs_key.secret_string)["NEXT_PUBLIC_templateid"]}"
+       },
+        {"name": "NEXT_PUBLIC_userid", 
+        "value": "${jsondecode(data.aws_secretsmanager_secret_version.emailjs_key.secret_string)["NEXT_PUBLIC_userid"]}"
+        }
     ],
     "logConfiguration": {
       "logDriver": "awslogs",

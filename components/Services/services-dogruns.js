@@ -8,13 +8,13 @@ const servicesDogRuns = [
       {
         id: 10,
         service: "Wire Top Dog Run",
-        price: "$2600 & Up",
+        price: "$",
         info: "Wire Roof. Allows you to walk in."
       },
       {
         id: 11,
         service: "Box Kennel opening into Dog Run",
-        price: "$2900 & Up",
+        price: "$$",
         link: "/combo_kennel",
         info: "Part Open Wire Part Hard Top Cover.",
         linktext: "info"
@@ -22,7 +22,7 @@ const servicesDogRuns = [
       {
         id: 12,
         service: "Hard Top",
-        price: "$2700 & Up",
+        price: "$$",
         info: "Roof does not allow sun in through top."
       }
     ],
@@ -35,7 +35,7 @@ const servicesDogRuns = [
       {
         id: 20,
         service: "Box Kennel tunnels into large dog run",
-        price: "$2900 & Up",
+        price: "$$$",
         info: "Box Kennel typically has doggy door access."
       }
     ],
@@ -48,7 +48,7 @@ const servicesDogRuns = [
       {
         id: 30,
         service: "Tunnel",
-        price: "$2500 & Up",
+        price: "$$",
         info: "Tunnel between house and yard wall.",
       }
     ],

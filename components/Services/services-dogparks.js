@@ -8,7 +8,7 @@ const servicesDogPark = [
       {
         id: 10,
         service: "Dog Park",
-        price: "$2600 & Up",
+        price: "$$",
         info: "A Safe Space to let your dog run free.",
         des: `🐾 Welcome to the PetSafeKennels Paws Paradise - Unleash the Joy! 🌳🏞️
 

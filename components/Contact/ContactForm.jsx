@@ -33,7 +33,7 @@ export default function ContactForm() {
       )
       .then(
         (result) => {
-          console.log("res", result.text);
+          console.log("res", result);
           handleSubmit(200);
         },
         (error) => {
@@ -56,7 +56,7 @@ export default function ContactForm() {
       <div className="mx-auto lg:w-1/2 sm:w-3/4 w-11/12">
         <p className="italic text-gray-500 text-sm mb-4">
           Please do not change or cancel appointments over email. To modify your
-          appointment call salon directly at 520-730-7020
+          appointment call directly at 520-730-7020
         </p>
         <form
           id="FORM"
