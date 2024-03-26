@@ -3,7 +3,5 @@
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
   "/": "pages/index.js",
-  "/[city]": "pages/[city].js",
-  "/dogrun": "pages/dogrun.js",
-  "/boxkennel": "pages/boxkennel.js"
+  "/ECH": "pages/ECH.js"
 }

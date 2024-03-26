@@ -33,3 +33,7 @@ margin-bottom: 20%;
 .cart{
     margin-top: 10rem;
 }
+
+.del{
+    box-shadow: 0 0 5px 0px red !important;
+}

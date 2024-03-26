@@ -26,6 +26,15 @@
           {
             "name": "NEXT_PUBLIC_templateid",
             "value": "<NEXT_PUBLIC_templateid>"
+          },
+          {
+            "name": "NEXT_PUBLIC_Location_id"
+          },
+          {
+            "name": "NEXT_PUBLIC_Application_id"
+          },
+          {
+            "name": "NEXT_PUBLIC_Access_token"
           }
         ]
       }
