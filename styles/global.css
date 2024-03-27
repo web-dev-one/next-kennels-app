@@ -37,3 +37,12 @@ margin-bottom: 20%;
 .del{
     box-shadow: 0 0 5px 0px red !important;
 }
+
+.total{
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0; /* Light gray background for calmness */
+    color: #0066cc; /* Dark blue text for trust and reliability */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow for depth */
+}

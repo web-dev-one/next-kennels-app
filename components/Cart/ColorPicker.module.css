@@ -1,0 +1,42 @@
+.colorPicker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.colorOption {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.colorOption input[type='radio'] {
+  display: none; /* Hide the radio button */
+}
+
+.colorBox {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}
+
+.cartColor{
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 4px !important;
+  border: 2px solid #ccc;
+  margin-left: 0% !important;
+  padding-left: 0% !important;
+
+}
+
+.colorBox.selected {
+  border-width: 2px;
+}
+
+/* Additional styling for hover effect */
+.colorOption:hover .colorBox {
+  border-color: #0066cc; /* Change border color on hover */
+}

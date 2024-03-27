@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import Head from 'next/head';
+import Image from 'next/image'
 import Layout from '../components/Layout/Layout';
 import { PaymentForm } from 'react-square-web-payments-sdk';
-import MyShopping from '../components/Cart/MyShopping';
+import ColorPicker from '../components/Cart/ColorPicker';
+import styles from '../components/Cart/ColorPicker.module.css'; // Import CSS module
 
 
 export default function PetSafeKennelsPage() {
     const [cartItems, setCartItems] = useState([]);
     const [showCheckout, setShowCheckout] = useState(false);
     const [showMyCart, setShowCart] = useState(false)
+    const [selectedColor, setSelectedColor] = useState('');
+    const [hexColor, setHex] = useState('');
 
     const addToCart = (item) => {
         debugger
@@ -20,16 +24,24 @@ export default function PetSafeKennelsPage() {
     };
 
     const calculateTotal = () => {
-        return cartItems.reduce((total, item) => total + item.price, 0);
+        let total = cartItems.reduce((total, item) => total + item.price, 0);
+        return <span className='total'>{total}</span>
     };
 
     const handleShowCart = () =>{
         return setShowCart(showMyCart ? false : true)
-    }
+    };
 
-    const handleDel = ({event, item}) =>{
-        debugger
-    }
+    const handleDel = ({event}) =>{
+        let id = event.target.id
+        setCartItems(cartItems.filter(i=>i.id != parseInt(id)))
+    };
+
+    const handleColorSelect = (color) => {
+        setSelectedColor(color.color);
+        setHex(color.hex);
+      };
+    
     return (
         <Layout>
             <Head>
@@ -40,37 +52,82 @@ export default function PetSafeKennelsPage() {
                 {/* Product cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {/* Product Card 1 */}
-                    <div className="bg-white rounded-lg shadow-md p-4">
+                    <div className="bg-white rounded-lg shadow-md p-4 mt-20">
                         <h2 className="text-xl font-semibold mb-2">Large Kennel</h2>
                         <p className="text-gray-600 mb-4">Perfect for big dogs.</p>
+                        <span className="mb-4 total">${3400}</span><br></br>
+                        <span className='flex space-x-8'>
+                        <Image 
+                            src="/coyote-kennel-peoria.jpg"
+                            width={150}
+                            height={150}
+                            className='rounded-lg'
+                        />
+                        <ColorPicker 
+                        selectedColor={selectedColor} 
+                        setSelectedColor={setSelectedColor}
+                        handleColorSelect={handleColorSelect}
+                       
+                        />
                         <button
                             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-                            onClick={() => addToCart({ name: 'Large Kennel', price: 499, id: Math.floor(Math.random()* 100) })}
+                            onClick={() => addToCart({ name: 'Large Kennel', price: 3400, id: Math.floor(Math.random()* 100), color: selectedColor, hex: hexColor })}
                         >
                             Add to Cart
                         </button>
+                        </span>
                     </div>
                     {/* Product Card 2 */}
-                    <div className="bg-white rounded-lg shadow-md p-4">
+                    <div className="bg-white rounded-lg shadow-md p-4 mt-20">
                         <h2 className="text-xl font-semibold mb-2">Medium Kennel</h2>
-                        <p className="text-gray-600 mb-4">Ideal for medium-sized dogs.</p>
+                        <p className="text-gray-600 mb-4">Ideal for every dog.</p>
+                        <span className="mb-4 total">${2800}</span><br></br>
+                        <span className='flex space-x-8'>
+                        <Image 
+                            src="/coyote-kennel-peoria.jpg"
+                            width={150}
+                            height={150}
+                            className='rounded-lg'
+                        />
+                        <ColorPicker 
+                        selectedColor={selectedColor} 
+                        setSelectedColor={setSelectedColor}
+                        handleColorSelect={handleColorSelect}
+                       
+                        />
                         <button
                             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-                            onClick={() => addToCart({ name: 'Medium Kennel', price: 399 })}
+                            onClick={() => addToCart({ name: 'Medium Kennel', price: 2800,  id: Math.floor(Math.random()* 100), color: selectedColor, hex: hexColor })}
                         >
                             Add to Cart
                         </button>
+                        </span>
                     </div>
                     {/* Product Card 3 */}
-                    <div className="bg-white rounded-lg shadow-md p-4">
+                    <div className="bg-white rounded-lg shadow-md p-4 mt-20">
                         <h2 className="text-xl font-semibold mb-2">Small Kennel</h2>
                         <p className="text-gray-600 mb-4">Great for small breeds.</p>
+                        <span className="mb-4 total">${2200}</span><br></br>
+                        <span className='flex space-x-8'>
+                        <Image 
+                            src="/coyote-kennel-peoria.jpg"
+                            width={150}
+                            height={150}
+                            className='rounded-lg'
+                        />
+                        <ColorPicker 
+                        selectedColor={selectedColor} 
+                        setSelectedColor={setSelectedColor}
+                        handleColorSelect={handleColorSelect}
+                       
+                        />
                         <button
                             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-                            onClick={() => addToCart({ name: 'Small Kennel', price: 299 })}
+                            onClick={() => addToCart({ name: 'Small Kennel', price: 2200,  id: Math.floor(Math.random()* 100), color: selectedColor, hex: hexColor })}
                         >
                             Add to Cart
                         </button>
+                        </span>
                     </div>
                 </div>
                 {/* Shopping Cart */}
@@ -78,10 +135,15 @@ export default function PetSafeKennelsPage() {
                     <h2 className="text-xl font-semibold mb-4">Shopping Cart</h2>
                     <ul className="divide-y divide-gray-200">
                         {cartItems.map((item, index) => (
-                            <li key={index} className="flex justify-between items-center py-2">
+                            <li key={index} className="flex justify-left items-center p-2">
                                 <span>{item.name}</span>
+                                <span
+                                    style={{ backgroundColor: item.hex }}
+                                    className={styles.cartColor}
+                                    alt={item.color} // Alt tag added with color name
+                                 />
                                 <span>${item.price} <button className='bg-white rounded-xl shadow-md p-2 del'
-                                    onClick={(event, item)=>handleDel({event, item})}
+                                    id={item.id} onClick={(event)=>handleDel({event})}
                                 >x</button></span>
 
                             </li>
@@ -94,19 +156,9 @@ export default function PetSafeKennelsPage() {
                         >
                             Checkout 
                         </button>
-                         <button
-                         className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md mt-4"
-                         onClick={handleCheckout}
-                     >
-                         👀Cart 
-                     </button>
                      </>
                         )}
                         total: ${calculateTotal()}
-                        {
-                            setCartItems &&
-                            <MyShopping items={cartItems}/>
-                        }
                 </div>
                 {/* Payment Form */}
                 {showCheckout && (
