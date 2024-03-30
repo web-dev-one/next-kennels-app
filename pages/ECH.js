@@ -74,7 +74,7 @@ export default function PetSafeKennelsPage() {
                         setSelectedColor={setSelectedColor}
                         handleColorSelect={handleColorSelect}
                         />
-                        <p ref={lRef} className={`ml-0 text-xs font-bold align-bottom text-${lRef.current}`}>[{lRef.current}]</p>
+                        <p ref={lRef} className={`ml-0 text-xs font-bold align-bottom text-${lRef.current}`}>{lRef.current != '' ? selectedColor : ''}</p>
                         </span>
                         <button
                             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
