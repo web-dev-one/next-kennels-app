@@ -19,7 +19,7 @@ const ColorPicker = ({handleColorSelect, selectedColor}) => {
   ];
 
   
-
+  debugger
   return (
     <span className='flex-col'>choose color
     <div className={styles.colorPicker}>

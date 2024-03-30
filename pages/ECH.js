@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Head from 'next/head';
 import Image from 'next/image'
 import Layout from '../components/Layout/Layout';
@@ -13,6 +13,9 @@ export default function PetSafeKennelsPage() {
     const [showMyCart, setShowCart] = useState(false)
     const [selectedColor, setSelectedColor] = useState('');
     const [hexColor, setHex] = useState('');
+
+    const lRef = useRef(selectedColor);
+    const mRef = useRef(selectedColor);
 
     const addToCart = (item) => {
         debugger
@@ -42,6 +45,8 @@ export default function PetSafeKennelsPage() {
         setHex(color.hex);
       };
     
+      debugger
+      
     return (
         <Layout>
             <Head>
@@ -63,12 +68,14 @@ export default function PetSafeKennelsPage() {
                             height={150}
                             className='rounded-lg'
                         />
+                        <span className='inline-block mx-2'>
                         <ColorPicker 
                         selectedColor={selectedColor} 
                         setSelectedColor={setSelectedColor}
                         handleColorSelect={handleColorSelect}
-                       
                         />
+                        <p ref={lRef} className={`ml-0 text-xs font-bold align-bottom text-${lRef.current}`}>[{lRef.current}]</p>
+                        </span>
                         <button
                             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
                             onClick={() => addToCart({ name: 'Large Kennel', price: 3400, id: Math.floor(Math.random()* 100), color: selectedColor, hex: hexColor })}
@@ -89,12 +96,14 @@ export default function PetSafeKennelsPage() {
                             height={150}
                             className='rounded-lg'
                         />
+                          <span className='inline-block mx-2'>
                         <ColorPicker 
                         selectedColor={selectedColor} 
                         setSelectedColor={setSelectedColor}
                         handleColorSelect={handleColorSelect}
-                       
                         />
+                        <p ref={mRef} className={`ml-0 text-xs font-bold align-bottom text-${mRef.current}`}>{mRef.current == '' ? '' : selectedColor}</p>
+                        </span>
                         <button
                             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
                             onClick={() => addToCart({ name: 'Medium Kennel', price: 2800,  id: Math.floor(Math.random()* 100), color: selectedColor, hex: hexColor })}
