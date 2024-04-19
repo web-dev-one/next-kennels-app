@@ -41,7 +41,7 @@ export default function Reviews(props) {
 
         <div className="text-center">
           <a
-            href="https://maps.google.com/?cid=13262548078072798292"
+            href="https://www.google.com/maps/place/Petsafe+Kennels+LLC/@33.6055497,-112.4547192,10z/data=!3m1!4b1!4m6!3m5!1s0x872b6d29e167a43f:0x204edc64916ba923!8m2!3d33.6054149!4d-112.125051!16s%2Fg%2F11d_dhptj6?entry=ttu"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-blue-600 text-sm"
