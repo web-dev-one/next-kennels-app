@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './ColorPicker.module.css'; // Import CSS module
 
-const ColorPicker = ({handleColorSelect, selectedColor}) => {
+const ColorPicker = ({handleColorSelect, selectedColor, hexColor}) => {
 
   const colors = [
     { name: 'Polar White', hex: '#E8E8EF' },
@@ -30,7 +30,7 @@ const ColorPicker = ({handleColorSelect, selectedColor}) => {
             name="color"
             value={color.name}
             checked={selectedColor === color.name}
-            onChange={() => handleColorSelect({color: color.name, hex: color.hex})}
+            onChange={(e) => handleColorSelect({event: e, color: color.name, hex: color.hex})}
           />
           <span
             style={{ backgroundColor: color.hex }}

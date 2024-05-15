@@ -11,11 +11,17 @@ export default function PetSafeKennelsPage() {
     const [cartItems, setCartItems] = useState([]);
     const [showCheckout, setShowCheckout] = useState(false);
     const [showMyCart, setShowCart] = useState(false)
-    const [selectedColor, setSelectedColor] = useState('');
-    const [hexColor, setHex] = useState('');
+    
+    const [selectedColorLarge, setSelectedColorLarge] = useState('');
+    const [selectedColorMedium, setSelectedColorMedium] = useState('');
+    const [selectedColorSmall, setSelectedColorSmall] = useState('');
 
-    const lRef = useRef(selectedColor);
-    const mRef = useRef(selectedColor);
+    const [hexColorLarge, setHexLarge] = useState('');
+    const [hexColorMedium, setHexMedium] = useState('');
+    const [hexColorSmall, setHexSmall] = useState('');
+
+    const lRef = useRef(selectedColorLarge);
+    const mRef = useRef(selectedColorMedium);
 
     const addToCart = (item) => {
         debugger
@@ -40,9 +46,21 @@ export default function PetSafeKennelsPage() {
         setCartItems(cartItems.filter(i=>i.id != parseInt(id)))
     };
 
-    const handleColorSelect = (color) => {
-        setSelectedColor(color.color);
-        setHex(color.hex);
+    const handleColorSelect = ({event, color, hex}) => {
+        
+        let size = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.id
+        debugger
+        if (size == 'Large'){
+            setSelectedColorLarge(color)
+            setHexLarge(hex)
+        }
+        else if (size == 'Medium'){ 
+            setSelectedColorMedium(color)
+            setHexMedium(hex) 
+        } else { 
+            setSelectedColorSmall(color)
+            setHexSmall(hex)
+        }
       };
     
       debugger
@@ -61,7 +79,7 @@ export default function PetSafeKennelsPage() {
                         <h2 className="text-xl font-semibold mb-2">Large Kennel</h2>
                         <p className="text-gray-600 mb-4">Perfect for big dogs.</p>
                         <span className="mb-4 total">${3400}</span><br></br>
-                        <span className='flex space-x-8'>
+                        <span id="Large" className='flex space-x-8'>
                         <Image 
                             src="/coyote-kennel-peoria.jpg"
                             width={150}
@@ -69,16 +87,17 @@ export default function PetSafeKennelsPage() {
                             className='rounded-lg'
                         />
                         <span className='inline-block mx-2'>
-                        <ColorPicker 
-                        selectedColor={selectedColor} 
-                        setSelectedColor={setSelectedColor}
+                        <ColorPicker
+                        selectedColor={selectedColorLarge}
+                        hexColor={hexColorLarge}
+                        setSelectedColor={setSelectedColorLarge}
                         handleColorSelect={handleColorSelect}
                         />
-                        <p ref={lRef} className={`ml-0 text-xs font-bold align-bottom text-${lRef.current}`}>{lRef.current != '' ? selectedColor : ''}</p>
+                        <p ref={lRef} className={`ml-0 text-xs font-bold align-bottom text-${lRef.current}`}>{lRef.current != '' ? selectedColorLarge : ''}</p>
                         </span>
                         <button
                             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-                            onClick={() => addToCart({ name: 'Large Kennel', price: 3400, id: Math.floor(Math.random()* 100), color: selectedColor, hex: hexColor })}
+                            onClick={() => addToCart({ name: 'Large Kennel', price: 3400, id: Math.floor(Math.random()* 100), color: selectedColorLarge, hex: hexColorLarge })}
                         >
                             Add to Cart
                         </button>
@@ -89,7 +108,7 @@ export default function PetSafeKennelsPage() {
                         <h2 className="text-xl font-semibold mb-2">Medium Kennel</h2>
                         <p className="text-gray-600 mb-4">Ideal for every dog.</p>
                         <span className="mb-4 total">${2800}</span><br></br>
-                        <span className='flex space-x-8'>
+                        <span id="Medium" className='flex space-x-8'>
                         <Image 
                             src="/coyote-kennel-peoria.jpg"
                             width={150}
@@ -97,16 +116,17 @@ export default function PetSafeKennelsPage() {
                             className='rounded-lg'
                         />
                           <span className='inline-block mx-2'>
-                        <ColorPicker 
-                        selectedColor={selectedColor} 
-                        setSelectedColor={setSelectedColor}
+                        <ColorPicker
+                        hexColor={hexColorMedium}
+                        selectedColor={selectedColorMedium} 
+                        setSelectedColor={setSelectedColorMedium}
                         handleColorSelect={handleColorSelect}
                         />
-                        <p ref={mRef} className={`ml-0 text-xs font-bold align-bottom text-${mRef.current}`}>{mRef.current == '' ? '' : selectedColor}</p>
+                        <p ref={mRef} className={`ml-0 text-xs font-bold align-bottom text-${mRef.current}`}>{mRef.current == '' ? '' : selectedColorMedium}</p>
                         </span>
                         <button
                             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-                            onClick={() => addToCart({ name: 'Medium Kennel', price: 2800,  id: Math.floor(Math.random()* 100), color: selectedColor, hex: hexColor })}
+                            onClick={() => addToCart({ name: 'Medium Kennel', price: 2800,  id: Math.floor(Math.random()* 100), color: selectedColorMedium, hex: hexColorMedium })}
                         >
                             Add to Cart
                         </button>
@@ -124,15 +144,15 @@ export default function PetSafeKennelsPage() {
                             height={150}
                             className='rounded-lg'
                         />
-                        <ColorPicker 
-                        selectedColor={selectedColor} 
-                        setSelectedColor={setSelectedColor}
+                        <ColorPicker
+                        id={"Small"}
+                        selectedColor={selectedColorSmall} 
+                        setSelectedColor={setSelectedColorSmall}
                         handleColorSelect={handleColorSelect}
-                       
                         />
                         <button
                             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-                            onClick={() => addToCart({ name: 'Small Kennel', price: 2200,  id: Math.floor(Math.random()* 100), color: selectedColor, hex: hexColor })}
+                            onClick={() => addToCart({ name: 'Small Kennel', price: 2200,  id: Math.floor(Math.random()* 100), color: selectedColSmallor, hex: hexColorSmall })}
                         >
                             Add to Cart
                         </button>
