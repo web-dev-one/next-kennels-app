@@ -22,6 +22,7 @@ export default function PetSafeKennelsPage() {
 
     const lRef = useRef(selectedColorLarge);
     const mRef = useRef(selectedColorMedium);
+    const sRef = useRef(selectedColorSmall);
 
     const addToCart = (item) => {
         debugger
@@ -78,7 +79,7 @@ export default function PetSafeKennelsPage() {
                     <div className="bg-white rounded-lg shadow-md p-4 mt-20">
                         <h2 className="text-xl font-semibold mb-2">Large Kennel</h2>
                         <p className="text-gray-600 mb-4">Perfect for big dogs.</p>
-                        <span className="mb-4 total">${3400}</span><br></br>
+                        <span className="inline-flex mb-4 total">${3400}<p ref={lRef} className={`mx-2 font-bold text-${lRef.current}`}>{lRef.current != '' ? selectedColorLarge : ''}</p></span><br></br>
                         <span id="Large" className='flex space-x-8'>
                         <Image 
                             src="/coyote-kennel-peoria.jpg"
@@ -93,7 +94,7 @@ export default function PetSafeKennelsPage() {
                         setSelectedColor={setSelectedColorLarge}
                         handleColorSelect={handleColorSelect}
                         />
-                        <p ref={lRef} className={`ml-0 text-xs font-bold align-bottom text-${lRef.current}`}>{lRef.current != '' ? selectedColorLarge : ''}</p>
+                        {/* <p ref={lRef} className={`ml-0 text-xs font-bold align-bottom text-${lRef.current}`}>{lRef.current != '' ? selectedColorLarge : ''}</p> */}
                         </span>
                         <button
                             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
@@ -107,7 +108,7 @@ export default function PetSafeKennelsPage() {
                     <div className="bg-white rounded-lg shadow-md p-4 mt-20">
                         <h2 className="text-xl font-semibold mb-2">Medium Kennel</h2>
                         <p className="text-gray-600 mb-4">Ideal for every dog.</p>
-                        <span className="mb-4 total">${2800}</span><br></br>
+                        <span className="inline-flex mb-4 total">${2800}<p ref={mRef} className={`mx-2 font-bold text-${mRef.current}`}>{mRef.current != '' ? selectedColorMedium : ''}</p></span><br></br>
                         <span id="Medium" className='flex space-x-8'>
                         <Image 
                             src="/coyote-kennel-peoria.jpg"
@@ -122,7 +123,6 @@ export default function PetSafeKennelsPage() {
                         setSelectedColor={setSelectedColorMedium}
                         handleColorSelect={handleColorSelect}
                         />
-                        <p ref={mRef} className={`ml-0 text-xs font-bold align-bottom text-${mRef.current}`}>{mRef.current == '' ? '' : selectedColorMedium}</p>
                         </span>
                         <button
                             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
@@ -133,16 +133,17 @@ export default function PetSafeKennelsPage() {
                         </span>
                     </div>
                     {/* Product Card 3 */}
-                    <div className="bg-white rounded-lg shadow-md p-4 mt-20">
+                    <div className="bg-white rounded-lg shadow-md p-4 mt-20 resize-none">
                         <h2 className="text-xl font-semibold mb-2">Small Kennel</h2>
                         <p className="text-gray-600 mb-4">Great for small breeds.</p>
-                        <span className="mb-4 total">${2200}</span><br></br>
+                        <span className="inline-flex mb-4 total">${2200}<p ref={sRef} className={`mx-2 font-bold text-${sRef.current}`}>{sRef.current != '' ? selectedColorSmall : ''}</p></span><br></br>
+
                         <span className='flex space-x-8'>
                         <Image 
                             src="/coyote-kennel-peoria.jpg"
                             width={150}
                             height={150}
-                            className='rounded-lg'
+                            className='xs:w-full lg:w-1/4 flex-shrink-0 rounded-lg resize-none'
                         />
                         <ColorPicker
                         id={"Small"}
@@ -151,8 +152,8 @@ export default function PetSafeKennelsPage() {
                         handleColorSelect={handleColorSelect}
                         />
                         <button
-                            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-                            onClick={() => addToCart({ name: 'Small Kennel', price: 2200,  id: Math.floor(Math.random()* 100), color: selectedColSmallor, hex: hexColorSmall })}
+                            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md resize-none"
+                            onClick={() => addToCart({ name: 'Small Kennel', price: 2200,  id: Math.floor(Math.random()* 100), color: selectedColorSmall, hex: hexColorSmall })}
                         >
                             Add to Cart
                         </button>
@@ -160,7 +161,7 @@ export default function PetSafeKennelsPage() {
                     </div>
                 </div>
                 {/* Shopping Cart */}
-                <div className="mt-8">
+                <div className="mt-8 w-1/5 mx-auto">
                     <h2 className="text-xl font-semibold mb-4">Shopping Cart</h2>
                     <ul className="divide-y divide-gray-200">
                         {cartItems.map((item, index) => (
@@ -171,7 +172,7 @@ export default function PetSafeKennelsPage() {
                                     className={styles.cartColor}
                                     alt={item.color} // Alt tag added with color name
                                  />
-                                <span>${item.price} <button className='bg-white rounded-xl shadow-md p-2 del'
+                                <span>${item.price} <button className='bg-white rounded-xl shadow-md p-2 del mx-auto'
                                     id={item.id} onClick={(event)=>handleDel({event})}
                                 >x</button></span>
 
