@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  
 }
 
 .colorOption {
@@ -14,6 +13,10 @@
 
 .colorOption input[type='radio'] {
   display: none; /* Hide the radio button */
+}
+
+.sizeOption input[type='radio'] {
+  display: flex; 
 }
 
 .colorBox {
@@ -40,4 +43,18 @@
 /* Additional styling for hover effect */
 .colorOption:hover .colorBox {
   border-color: #0066cc; /* Change border color on hover */
+}
+
+.sizePicker {
+  /* Add your styles for the size picker container here */
+  /* For example: */
+  display: flex;
+  flex-direction: column;
+  /* Add more styles as needed */
+}
+
+.sizeOption {
+  /* Add your styles for each size option here */
+  /* For example: */
+  margin: 0.5rem;
 }
