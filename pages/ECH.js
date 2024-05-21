@@ -1,15 +1,31 @@
-"use client"
+"use client";
+
 import { useState, useRef } from 'react';
 import Head from 'next/head';
 import Image from 'next/image'
 import Layout from '../components/Layout/Layout';
-import { PaymentForm, CreditCard } from 'react-square-web-payments-sdk';
+
+
+
+import { PaymentForm, 
+         CreditCard, 
+         GooglePay, 
+         SquarePaymentsForm, 
+         CreditCardInput } from 'react-square-web-payments-sdk';
+
 import ColorPicker from '../components/Cart/ColorPicker';
 import SizePicker from '../components/Cart/SizePicker'
 import styles from '../components/Cart/ColorPicker.module.css'; // Import CSS module
+import { submitPayment } from "../actions/actions";
 
+
+
+const APP_ID = process.env.NEXT_PUBLIC_Application_ID
+const LOCAL_ID = process.env.NEXT_PUBLIC_Location_id
 
 export default function PetSafeKennelsPage() {
+
+   
     const [cartItems, setCartItems] = useState([]);
     const [showCheckout, setShowCheckout] = useState(false);
     const [showMyCart, setShowCart] = useState(false)
@@ -31,8 +47,8 @@ export default function PetSafeKennelsPage() {
     const sRef = useRef(selectedColorSmall);
 
     const addToCart = (item) => {
-        debugger
         setCartItems([...cartItems, item]);
+       
     };
 
     const handleCheckout = () => {
@@ -230,17 +246,26 @@ export default function PetSafeKennelsPage() {
                 {/* Payment Form */}
                 {showCheckout && (
                     <PaymentForm
-                        applicationId={process.env.NEXT_PUBLIC_Application_id}
-                        locationId={process.env.NEXT_PUBLIC_Location_id}
-                        cardTokenizeResponseReceived={async (token, verifiedBuyer) => {
-                            console.log('token:', token);
-                            console.log('verifiedBuyer:', verifiedBuyer);
-                            // Here you can handle the payment processing logic
-                        }}
+                        applicationId={ APP_ID }
+                        locationId={LOCAL_ID}
+                        cardTokenizeResponseReceived={async (token) => {
+                                const result = await submitPayment(token.token);
+                                console.log(result)
+                          }
+                        }  
                        
-                    >
-                        <CreditCard />
-                    </PaymentForm>
+                      >
+                        <CreditCard buttonProps={{
+                            css: {
+                                 backgroundColor: "#771520",
+                                 fontSize: "14px",
+                                 color: "#fff",
+                                 "&:hover": {
+                                   backgroundColor: "#530f16",
+                                 },
+                               },  }}/>
+                              
+                     </PaymentForm>
                 )}
             </div>
         </Layout>

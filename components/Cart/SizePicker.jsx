@@ -2,8 +2,8 @@ import styles from './ColorPicker.module.css'; // Import CSS module
 
 export default function SizePicker({ handleSizeSelect, selectedSize }) {
     const sizes = [
-        {size: "XL", price: 0},
-        {size:"L", price: 0}, 
+        {size: "XL", price: 2},
+        {size:"L", price: 3}, 
         {size:"M", price: 0},
         {size:"S", price: 0}
         ]

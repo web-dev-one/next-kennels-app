@@ -50,13 +50,36 @@
 //  * @type {import('next').NextConfig}
 //  */
 
-module.exports = {
-    images: {
-      domains: ['petsafekennels.com']
-    },
-    env: {
-      NEXT_PUBLIC_publickey: "b-6MnmRRRXXQ7A6u_",
-      NEXT_PUBLIC_userid: "service_0g854z1",
-      NEXT_PUBLIC_templateid: "template_gnisov4"
-    }
-  }
+// const withTM = require('next-transpile-modules')(['@square/web-sdk', 'react-square-web-payments-sdk'])
+
+// module.exports = withTM({
+//     experimental: {
+//       esmExtermals: 'loose'
+//     },
+//     images: {
+//       // domains: ['petsafekennels.com']
+//       remotePatterns: [
+//         {
+//           // protocol: "https",
+//           hostname: "**",
+//           // make petsafekennels.com soon
+//         },
+//       ]
+//     },
+//     env: {
+//       NEXT_PUBLIC_publickey: "b-6MnmRRRXXQ7A6u_",
+//       NEXT_PUBLIC_userid: "service_0g854z1",
+//       NEXT_PUBLIC_templateid: "template_gnisov4"
+//     }
+//   })
+
+
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {  experimental: {
+  taint: true,
+  serverActions: true,
+},};
+
+
+module.exports = nextConfig;
