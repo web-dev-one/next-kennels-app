@@ -1,8 +1,9 @@
+"use client"
 import { useState, useRef } from 'react';
 import Head from 'next/head';
 import Image from 'next/image'
 import Layout from '../components/Layout/Layout';
-import { PaymentForm } from 'react-square-web-payments-sdk';
+import { PaymentForm, CreditCard } from 'react-square-web-payments-sdk';
 import ColorPicker from '../components/Cart/ColorPicker';
 import SizePicker from '../components/Cart/SizePicker'
 import styles from '../components/Cart/ColorPicker.module.css'; // Import CSS module
@@ -76,16 +77,25 @@ export default function PetSafeKennelsPage() {
       
       const showSize = (size) =>{
         if (size === 'XL'){
-            return <h1 className='text-red-400'>Extra Large</h1>
+            return <h1 className='inline mx-auto text-red-400'>Extra Large</h1>
           } else if (size === 'L'){
-            return <h1 className='text-red-400'>Large</h1>
+            return <h1 className='inline mx-auto text-red-400'>Large</h1>
           } else if (size === 'M'){
-            return <h1 className='text-red-400'>Medium</h1>
+            return <h1 className='inline mx-auto text-red-400'>Medium</h1>
           } else { 
-            return <h1 className='text-red-400'>Small</h1>
+            return <h1 className='inline mx-auto text-red-400'>Small</h1>
         }
       }
       
+      const showPhrase =()=>{
+        if (selectedSize == 'XL' || selectedSize == 'L'){
+            return "Pefect for Big dogs"
+        } 
+        else if (selectedSize  == 'M'){
+            return 'Worlds Happiest Dog Kennel'
+        }
+        else { return 'Protection you can purchase'}
+      }
       
     return (
         <Layout>
@@ -93,13 +103,13 @@ export default function PetSafeKennelsPage() {
                 <title>Pet Safe Kennels - Premium Dog Kennels</title>
             </Head>
             <div className="flex-col justify-center mx-auto w-full">
-                <h1 className="text-3xl font-bold mt-8 mb-4">Pet Safe Kennels</h1>
+                <h1 className="text-3xl font-bold mt-8 mb-4">{showPhrase()}</h1>
                 {/* Product cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 w-1/3 mx-auto">
                     {/* Product Card 1 */}
                     <div className="bg-white rounded-lg shadow-md p-12 pl-6 mt-20">
-                        <h2 className="text-xl font-semibold mb-2">Large Kennel</h2>
-                        <p className="text-gray-600 mb-4">Perfect for big dogs.</p>
+                        <h2 className="text-xl font-semibold mb-2"><>{selectedSize ? showSize(selectedSize) : ''} Kennel</></h2>
+                        <p className="text-gray-600 mb-4 mx-auto">{showPhrase()}.</p>
                         <span className="inline-flex mb-4 total">{kennel$ == 0 ? '' : `$${kennel$}`}<p ref={lRef} className={`mx-2 font-bold text-${lRef.current}`}>{lRef.current != '' ? selectedColorLarge : ''}</p></span><br></br>
                         <span id="Large" className='flex-col lg:flex-col h-24 space-x-8 mx-auto'>
                         <Image 
@@ -221,13 +231,16 @@ export default function PetSafeKennelsPage() {
                 {showCheckout && (
                     <PaymentForm
                         applicationId={process.env.NEXT_PUBLIC_Application_id}
-                        cardTokenizeResponseReceived={(token, verifiedBuyer) => {
+                        locationId={process.env.NEXT_PUBLIC_Location_id}
+                        cardTokenizeResponseReceived={async (token, verifiedBuyer) => {
                             console.log('token:', token);
                             console.log('verifiedBuyer:', verifiedBuyer);
                             // Here you can handle the payment processing logic
                         }}
-                        locationId={process.env.NEXT_PUBLIC_Location_id}
-                    />
+                       
+                    >
+                        <CreditCard />
+                    </PaymentForm>
                 )}
             </div>
         </Layout>
