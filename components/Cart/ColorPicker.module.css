@@ -49,7 +49,7 @@
   /* Add your styles for the size picker container here */
   /* For example: */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   /* Add more styles as needed */
 }
 

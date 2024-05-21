@@ -21,7 +21,9 @@ export default function PetSafeKennelsPage() {
     const [hexColorMedium, setHexMedium] = useState('');
     const [hexColorSmall, setHexSmall] = useState('');
 
-    const [selectedSize, pickSize] = useState('')
+    const [selectedSize, pickSize] = useState('');
+
+    let [kennel$, set$]= useState(0);
 
     const lRef = useRef(selectedColorLarge);
     const mRef = useRef(selectedColorMedium);
@@ -67,36 +69,43 @@ export default function PetSafeKennelsPage() {
         }
       };
 
-      const handleSizeSelect = ({event, size}) =>{
-
-        pickSize(size)
-
+      const handleSizeSelect = ({event, size, price}) =>{
+        pickSize(size);
+        set$(price);
       }
-    
-      debugger
+      
+      const showSize = (size) =>{
+        if (size === 'XL'){
+            return <h1 className='text-red-400'>Extra Large</h1>
+          } else if (size === 'L'){
+            return <h1 className='text-red-400'>Large</h1>
+          } else if (size === 'M'){
+            return <h1 className='text-red-400'>Medium</h1>
+          } else { 
+            return <h1 className='text-red-400'>Small</h1>
+        }
+      }
+      
       
     return (
         <Layout>
             <Head>
                 <title>Pet Safe Kennels - Premium Dog Kennels</title>
             </Head>
-            <div className="flex-col justify-center mx-auto w-96">
+            <div className="flex-col justify-center mx-auto w-full">
                 <h1 className="text-3xl font-bold mt-8 mb-4">Pet Safe Kennels</h1>
                 {/* Product cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 w-1/3 mx-auto">
                     {/* Product Card 1 */}
-                    <div className="bg-white rounded-lg shadow-md p-12 pl-6 mt-20 mx-auto">
+                    <div className="bg-white rounded-lg shadow-md p-12 pl-6 mt-20">
                         <h2 className="text-xl font-semibold mb-2">Large Kennel</h2>
                         <p className="text-gray-600 mb-4">Perfect for big dogs.</p>
-                        <span className="inline-flex mb-4 total">${3400}<p ref={lRef} className={`mx-2 font-bold text-${lRef.current}`}>{lRef.current != '' ? selectedColorLarge : ''}</p></span><br></br>
-                        <span id="Large" className='flex hidden lg:block space-x-8' 
-    >
+                        <span className="inline-flex mb-4 total">{kennel$ == 0 ? '' : `$${kennel$}`}<p ref={lRef} className={`mx-2 font-bold text-${lRef.current}`}>{lRef.current != '' ? selectedColorLarge : ''}</p></span><br></br>
+                        <span id="Large" className='flex-col lg:flex-col h-24 space-x-8 mx-auto'>
                         <Image 
-                            src="/Loomis-Kennel-Box.jpg"
-                            width={600}
-                            height={100}
-                            
-
+                            src="/Loomis-Kennel-Box-md.jpg"
+                            width={300}
+                            height={50}
                             className='rounded-lg'
                         />
                         <span className='inline-block mx-2'>
@@ -113,9 +122,10 @@ export default function PetSafeKennelsPage() {
                         />
                         {/* <p ref={lRef} className={`ml-0 text-xs font-bold align-bottom text-${lRef.current}`}>{lRef.current != '' ? selectedColorLarge : ''}</p> */}
                         </span>
+                        <br/>
                         <button
                             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-                            onClick={() => addToCart({ name: 'Large Kennel', price: 3400, id: Math.floor(Math.random()* 100), color: selectedColorLarge, hex: hexColorLarge, size: selectedSize })}
+                            onClick={() => addToCart({ name: selectedSize, price: kennel$, id: Math.floor(Math.random()* 100), color: selectedColorLarge, hex: hexColorLarge, size: selectedSize })}
                         >
                             Add to Cart
                         </button>
@@ -178,12 +188,12 @@ export default function PetSafeKennelsPage() {
                     </div> */}
                 </div> 
                 {/* Shopping Cart */}
-                <div className="mt-8 mx-auto">
+                <div className="w-2/6 mt-8 mx-auto">
                     <h2 className="text-xl font-semibold mb-4">Shopping Cart</h2>
                     <ul className="divide-y divide-gray-200">
                         {cartItems.map((item, index) => (
                             <li key={index} className="flex justify-left items-center p-2">
-                                <span>{item.name}</span>
+                                <span>{showSize(item.size)}</span>
                                 <span
                                     style={{ backgroundColor: item.hex }}
                                     className={styles.cartColor}
