@@ -1,11 +1,8 @@
-"use client";
 
 import { useState, useRef } from 'react';
 import Head from 'next/head';
 import Image from 'next/image'
 import Layout from '../components/Layout/Layout';
-
-
 
 import { PaymentForm, 
          CreditCard, 
@@ -16,8 +13,7 @@ import { PaymentForm,
 import ColorPicker from '../components/Cart/ColorPicker';
 import SizePicker from '../components/Cart/SizePicker'
 import styles from '../components/Cart/ColorPicker.module.css'; // Import CSS module
-import { submitPayment } from "../actions/actions";
-
+// import { submitPayment } from "../actions/actions";
 
 
 const APP_ID = process.env.NEXT_PUBLIC_Application_ID
@@ -248,11 +244,22 @@ export default function PetSafeKennelsPage() {
                     <PaymentForm
                         applicationId={ APP_ID }
                         locationId={LOCAL_ID}
-                        cardTokenizeResponseReceived={async (token) => {
-                                const result = await submitPayment(token.token);
-                                console.log(result)
+                        cardTokenizeResponseReceived={async (token, buyer) => {
+                            const response = await fetch("../actions/actions", {
+                                method: "POST",
+                                headers: {
+                                  "Content-type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                  sourceId: token.token,
+                                }),
+                              });
+                              console.log(await response.json());
                           }
-                        }  
+                        }
+                        // cardTokenizeResponseReceived={async (token) => {
+                        //     const result = await submitPayment(token.token);
+                        //     console.log(result); } }
                        
                       >
                         <CreditCard buttonProps={{

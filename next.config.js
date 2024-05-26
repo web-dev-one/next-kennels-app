@@ -50,36 +50,66 @@
 //  * @type {import('next').NextConfig}
 //  */
 
-// const withTM = require('next-transpile-modules')(['@square/web-sdk', 'react-square-web-payments-sdk'])
+const withTM = require('next-transpile-modules')(['@square/web-sdk', 'react-square-web-payments-sdk'])
 
-// module.exports = withTM({
-//     experimental: {
-//       esmExtermals: 'loose'
-//     },
-//     images: {
-//       // domains: ['petsafekennels.com']
-//       remotePatterns: [
-//         {
-//           // protocol: "https",
-//           hostname: "**",
-//           // make petsafekennels.com soon
-//         },
-//       ]
-//     },
-//     env: {
-//       NEXT_PUBLIC_publickey: "b-6MnmRRRXXQ7A6u_",
-//       NEXT_PUBLIC_userid: "service_0g854z1",
-//       NEXT_PUBLIC_templateid: "template_gnisov4"
-//     }
-//   })
-
-
-
-/** @type {import('next').NextConfig} */
-const nextConfig = {  experimental: {
-  taint: true,
-  serverActions: true,
-},};
+module.exports = withTM({
+    experimental: {
+      esmExtermals: 'loose'
+    },
+    experimental: {
+          serverActions: true,
+       },
+    images: {
+      // domains: ['petsafekennels.com']
+      remotePatterns: [
+        {
+          // protocol: "https",
+          hostname: "**",
+          // make petsafekennels.com soon
+        },
+      ]
+    },
+    env: {
+      NEXT_PUBLIC_publickey: "b-6MnmRRRXXQ7A6u_",
+      NEXT_PUBLIC_userid: "service_0g854z1",
+      NEXT_PUBLIC_templateid: "template_gnisov4"
+    }
+  })
 
 
-module.exports = nextConfig;
+
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {  experimental: {
+//   taint: true,
+//   serverActions: true,
+// },};
+
+
+// module.exports = nextConfig;
+
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   future: {
+//     webpack5: true,
+//   },
+//   headers: [
+//     {
+//       key: 'Access-Control-Allow-Origin',
+//       value: process.env.NEXT_PUBLIC_APP_URL,
+//     },]
+//     ,
+//   experimental: {
+//     serverActions: true,
+//   }, };
+
+// module.exports = nextConfig;
+
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   reactStrictMode: true,
+//   experimental: {
+//     serverActions: true,
+//   },
+// };
+
+// module.exports = nextConfig;

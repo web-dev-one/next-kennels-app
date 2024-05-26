@@ -1,3 +1,5 @@
+"use client"
+
 import "../styles/global.css";
 import "../styles/index.css";
 

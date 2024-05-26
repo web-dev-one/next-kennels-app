@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import WelcomeCarousel from "../components/Carousel";
 import Services from "../components/Services/ServiceMenu";
