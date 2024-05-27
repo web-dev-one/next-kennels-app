@@ -20,11 +20,13 @@ $large: 900px;
 
 .mobileKennel {
     @media screen and (max-width: $small) {
+       min-height: 100vh !important;
        background-color: rgb(228, 206, 251);
        min-width: 70vw !important;
        margin-left: 14%;
       }
       @media screen and (max-width: $medium) {
+        min-height: 100vh !important;
         background-color: rgb(228, 206, 251);
         min-width: 70vw !important;
         margin-left: 14%;

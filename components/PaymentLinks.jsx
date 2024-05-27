@@ -30,7 +30,7 @@ export default function PaymentLinks(){
                     </p>
                     <p className='mx-auto montserrat tsd gn'>${price}</p>
                     <img className="mx-auto rounded" src={'/smallKennel.jpg'} alt="starter kit" height={"300px"} width={"400px"}/>
-                    <a target="_blank" href="https://square.link/u/qmPMRRcF?src=embed" className="justify-center mx-auto buy">Buy now</a>
+                    <a target="_blank" href="https://square.link/u/qmPMRRcF?src=embed" className="justify-center mx-auto buy pb-5 mb-6">Buy now</a>
                     </div>
                     </div>
                </>)
