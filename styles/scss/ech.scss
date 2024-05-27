@@ -1,16 +1,20 @@
 $small: 375px;
-$medium: 900px;
+$medium: 412px;
+$large: 900px;
 
 .button {
-  //some CSS
   @media screen and (max-width: $small) {
     justify-content: center;
     text-align: center;
     max-width: 65%;
     margin: 20%;
   }
-  @media screen and (min-width: $medium) {
-    //do Smth
+
+  @media screen and (min-width: $medium) and (max-width: $large) {
+    justify-content: center;
+    text-align: center;
+    max-width: 65%;
+    margin: 20%;
   }
 }
 
@@ -20,15 +24,41 @@ $medium: 900px;
        min-width: 70vw !important;
        margin-left: 14%;
       }
+      @media screen and (max-width: $medium) {
+        background-color: rgb(228, 206, 251);
+        min-width: 70vw !important;
+        margin-left: 14%;
+      }
 p ,  .mobileKennel {
+    @media screen and (max-width: $small){
     color: rgb(30, 18, 18);
-}
+    }
+
+    @media screen and (min-width: $medium) { 
+        color: rgb(93, 54, 54);
+    }
+  }
 }
 
 .price > img {
     @media screen and (max-width: $small) {
         height: 152px !important;
         padding-top: 0% !important;
+    } 
+
+    @media screen and (min-width: $medium) { 
+        height: 152px !important;
+        padding-top: 0% !important;
+    }
+
+    @media screen and (min-width: $large) {
+        height: 130px !important;
+        padding-top: 0% !important;
     }
 }
 
+.mobileKennel{
+    @media screen and (min-width: $medium) { 
+       
+    }
+}
