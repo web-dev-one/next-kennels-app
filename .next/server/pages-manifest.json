@@ -3,5 +3,6 @@
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
   "/": "pages/index.js",
+  "/elite-canine-habitat": "pages/elite-canine-habitat.js",
   "/[city]": "pages/[city].js"
 }

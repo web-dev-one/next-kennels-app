@@ -26,7 +26,7 @@ export default function Header(props) {
       >
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div
-            className={`${dropdown} w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start`}
+            className={`${dropdown} w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start relative`}
           >
            
               <picture>
