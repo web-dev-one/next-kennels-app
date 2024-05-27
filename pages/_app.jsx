@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import "../styles/global.css";
 import "../styles/index.css";
-
+import '../styles/scss/ech.scss'
 
 export default function App({ Component, pageProps }) {
   return(<>
@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
            <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
         </Head>
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
         </>
         )
 }

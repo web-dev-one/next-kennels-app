@@ -3,7 +3,7 @@ export default function Giftcard(props) {
     <div
       className={`${props.position ? "fixed" : "absolute"} bg-white rounded-xl`}
     >
-      <a href="https://swipeit.com/product/1218/tete-a-tete">
+      <a href="">
         <picture>
           <source type="image/webp" srcSet="giftcard.webp" />
           <source type="image/png" srcSet="giftcard.png" />
