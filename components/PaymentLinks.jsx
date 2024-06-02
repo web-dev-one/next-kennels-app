@@ -1,10 +1,44 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import FlipTitle from './FlipTitle'
-
+import DropDown from './DropDown'
 export default function PaymentLinks(){
 
         const [show, setShow] = useState(true);
-        const price = 1400
+        const [size, setSize] = useState('');
+        const [price, setPrice] = useState(1400);
+        const [link, setLink] = useState('')
+        console.log("SIZE", size)
+
+        const showMyPrice = () =>{
+          if (size === 'Small'){
+            setPrice(1400)
+          }
+          if (size === 'Medium'){
+            setPrice(1700)
+          }
+          if (size === 'Large'){
+            setPrice(2200)
+          }
+        }
+
+        const setMyLink = () =>{
+          if (size === 'Small'){
+            setLink("https://square.link/u/qmPMRRcF?src=embed")
+          }
+          if (size === 'Medium'){
+            setLink("https://square.link/u/yIhrXS5X")
+          }
+          if (size === 'Large'){
+            setLink("https://square.link/u/NXZnLkjl")
+          }
+        }
+
+        useEffect(()=>{
+            showMyPrice()
+            setMyLink()
+        })
+        
+        const medPrice = 1700
 
         return(<>
                   <div className="container flex-col mx-auto button my-5 h-1/2 mt-10 pt-10 w-2/6 static mobileKennel">
@@ -28,9 +62,10 @@ export default function PaymentLinks(){
                     <p className="text-center text-lg text-gray-700 mt-3 montserrat tsd">
                      Experience the pinnacle of pet protection with our premium kennels—where quality, craftsmanship, and peace of mind converge to create a haven your furry companions will adore.
                     </p>
+                    <DropDown setSize={setSize}/>
                     <p className='mx-auto montserrat tsd gn'>${price}</p>
                     <img className="mx-auto rounded" src={'/smallKennel.jpg'} alt="starter kit" height={"300px"} width={"400px"}/>
-                    <a target="_blank" href="https://square.link/u/qmPMRRcF?src=embed" className="justify-center mx-auto buy">Buy now</a>
+                    <a target="_blank" href={link} className="justify-center mx-auto buy">Buy now</a>
                     </div>
                     </div>
                </>)
