@@ -6,7 +6,7 @@ export default function PaymentLinks(){
         const [show, setShow] = useState(true);
         const [size, setSize] = useState('');
         const [price, setPrice] = useState(1400);
-        const [link, setLink] = useState('')
+        const [link, setLink] = useState("https://square.link/u/yIhrXS5X");
         console.log("SIZE", size)
 
         const showMyPrice = () =>{
