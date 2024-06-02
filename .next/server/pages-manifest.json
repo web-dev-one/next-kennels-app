@@ -1,10 +1,7 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-<<<<<<< HEAD
-=======
   "/_document": "pages/_document.js",
->>>>>>> squareCards
   "/": "pages/index.js",
   "/elite-canine-habitat": "pages/elite-canine-habitat.js"
 }

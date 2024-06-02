@@ -65,11 +65,7 @@ export default function PaymentLinks(){
                     <DropDown setSize={setSize}/>
                     <p className='mx-auto montserrat tsd gn'>${price}</p>
                     <img className="mx-auto rounded" src={'/smallKennel.jpg'} alt="starter kit" height={"300px"} width={"400px"}/>
-<<<<<<< HEAD
-                    <a target="_blank" href="https://square.link/u/qmPMRRcF?src=embed" className="justify-center mx-auto buy pb-7 mb-8">Buy now</a>
-=======
                     <a target="_blank" href={link} className="justify-center mx-auto buy">Buy now</a>
->>>>>>> squareCards
                     </div>
                     </div>
                </>)

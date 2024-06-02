@@ -6,10 +6,6 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-<<<<<<< HEAD
-<<<<<<< HEAD:.next/server/vendor-chunks/react-responsive-carousel.js
-=======
->>>>>>> squareCards
 exports.id = "vendor-chunks/react-responsive-carousel";
 exports.ids = ["vendor-chunks/react-responsive-carousel"];
 exports.modules = {
@@ -25,19 +21,4 @@ exports.modules = {
 /***/ })
 
 };
-<<<<<<< HEAD
 ;
-=======
-self["webpackHotUpdate_N_E"]("webpack",{},
-/******/ function(__webpack_require__) { // webpackRuntimeModules
-/******/ /* webpack/runtime/getFullHash */
-/******/ !function() {
-/******/ 	__webpack_require__.h = function() { return "899a6818ffc4161e"; }
-/******/ }();
-/******/ 
-/******/ }
-);
->>>>>>> squareCards:.next/static/webpack/webpack.076f21a77e07af25.hot-update.js
-=======
-;
->>>>>>> squareCards
