@@ -525,6 +525,7 @@ module.exports = require("react/jsx-dev-runtime");
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "react/jsx-runtime":
 /*!************************************!*\
   !*** external "react/jsx-runtime" ***!
@@ -536,6 +537,8 @@ module.exports = require("react/jsx-runtime");
 
 /***/ }),
 
+=======
+>>>>>>> squareCards
 /***/ "smoothscroll-polyfill":
 /*!****************************************!*\
   !*** external "smoothscroll-polyfill" ***!
@@ -591,6 +594,20 @@ module.exports = require("stream");
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "util":
+/*!***********************!*\
+  !*** external "util" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("util");
+
+/***/ }),
+
+>>>>>>> squareCards
 /***/ "zlib":
 /*!***********************!*\
   !*** external "zlib" ***!
