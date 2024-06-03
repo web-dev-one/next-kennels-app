@@ -4,9 +4,9 @@ import DropDown from './DropDown'
 export default function PaymentLinks(){
 
         const [show, setShow] = useState(true);
-        const [size, setSize] = useState('');
+        const [size, setSize] = useState('Small');
         const [price, setPrice] = useState(1400);
-        const [link, setLink] = useState("https://square.link/u/yIhrXS5X");
+        const [link, setLink] = useState("https://square.link/u/qmPMRRcF?src=embed");
         console.log("SIZE", size)
 
         const showMyPrice = () =>{
