@@ -27,10 +27,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/elite-canine-habitat": [
+    "/doghouse": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/elite-canine-habitat.js"
+      "static/chunks/pages/doghouse.js"
     ]
   },
   "ampFirstPages": []
