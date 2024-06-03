@@ -5,19 +5,19 @@ export default function PaymentLinks(){
 
         const [show, setShow] = useState(true);
         const [size, setSize] = useState('Small');
-        const [price, setPrice] = useState(1400);
+        const [price, setPrice] = useState(1500);
         const [link, setLink] = useState("https://square.link/u/qmPMRRcF?src=embed");
         console.log("SIZE", size)
 
         const showMyPrice = () =>{
           if (size === 'Small'){
-            setPrice(1400)
+            setPrice(1500)
           }
           if (size === 'Medium'){
-            setPrice(1700)
+            setPrice(1800)
           }
           if (size === 'Large'){
-            setPrice(2200)
+            setPrice(2300)
           }
         }
 
@@ -66,6 +66,7 @@ export default function PaymentLinks(){
                     <p className='mx-auto montserrat tsd gn'>${price}</p>
                     <img className="mx-auto rounded" src={'/smallKennel.jpg'} alt="starter kit" height={"300px"} width={"400px"}/>
                     <a target="_blank" href={link} className="justify-center mx-auto buy pb-8 mb-8">Buy now</a>
+                    <p className="mx-auto text-red-600/25 hover:text-red-600 mb-5">Shipping included in price</p>
                     </div>
                     </div>
                </>)
