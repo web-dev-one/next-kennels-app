@@ -23,7 +23,7 @@ export default function PaymentLinks(){
 
         const setMyLink = () =>{
           if (size === 'Small'){
-            setLink("https://square.link/u/qmPMRRcF?src=embed")
+            setLink("https://square.link/u/qmPMRRcF")
           }
           if (size === 'Medium'){
             setLink("https://square.link/u/yIhrXS5X")
