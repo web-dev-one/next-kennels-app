@@ -1,0 +1,1 @@
+{"c":["webpack"],"r":["pages/[city]"],"m":["./cities.json","./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=%2Fhome%2Fweb_dev%2FWebMastersSolutionsLLC%2FFrontEnd%2Fnext-kennels-app%2Fpages%2F%5Bcity%5D.js&page=%2F%5Bcity%5D!","./pages/City.js","./pages/[city].js"]}

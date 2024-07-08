@@ -27,10 +27,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/doghouse": [
+    "/eversafedogdens": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/doghouse.js"
+      "static/chunks/pages/eversafedogdens.js"
     ]
   },
   "ampFirstPages": []

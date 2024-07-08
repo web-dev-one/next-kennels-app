@@ -1,5 +1,4 @@
 import Layout from "../components/Layout/Layout";
-import Footer from "../components/Layout/Footer";
 import PaymentLinks from '../components/PaymentLinks';
 
 
